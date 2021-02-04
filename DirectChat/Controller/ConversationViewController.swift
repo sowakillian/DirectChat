@@ -1,32 +1,32 @@
 //
-//  ViewController.swift
+//  ConversationViewController.swift
 //  DirectChat
 //
 //  Created by SOWA KILLIAN on 03/02/2021.
 //
 
 import UIKit
-import Starscream
 
-class ViewController: UIViewController, WebSocketDelegate {
+class ConversationViewController: UIViewController {
     
     @IBOutlet var contentView: UIView!
     var isConnected = false
     @IBOutlet var chatCollView: UICollectionView!
     @IBOutlet var inputViewContainerBottomConstraint: NSLayoutConstraint!
     @IBOutlet var chatTF: UITextField!
-    var socket: WebSocket!
+    var socketRoomConnection:SocketServer? = nil
     
     private(set) var messageArray: [Message] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.navigationBar.isHidden = false
         self.navigationItem.title = "Messages"
         self.assignDelegates()
         self.manageInputEventsForTheSubViews()
         
-        self.startServer()
+        socketRoomConnection?.connect()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,54 +34,6 @@ class ViewController: UIViewController, WebSocketDelegate {
         
         self.fetchChatData()
     }
-    
-    private func startServer() {
-        print("Trying to start the server")
-        var request = URLRequest(url: URL(string: "http://172.20.10.2:9095/websocket-echo")!)
-        request.timeoutInterval = 5
-        socket = WebSocket(request: request)
-        socket.delegate = self
-        socket.connect()
-    }
-    
-    func didReceive(event: WebSocketEvent, client: WebSocket) {
-        
-        switch event {
-        case .connected(let headers):
-            isConnected = true
-            print("websocket is connected: \(headers)")
-        case .disconnected(let reason, let code):
-            isConnected = false
-            print("websocket is disconnected: \(reason) with code: \(code)")
-        case .text(let string):
-            print("Received text: \(string)")
-        case .binary(let data):
-            print("Received data: \(data.count)")
-        case .ping(_):
-            break
-        case .pong(_):
-            break
-        case .viabilityChanged(_):
-            break
-        case .reconnectSuggested(_):
-            break
-        case .cancelled:
-            isConnected = false
-        case .error(let error):
-            isConnected = false
-            handleError(error)
-        }
-    }
-    
-    func handleError(_ error: Error?) {
-           if let e = error as? WSError {
-               print("websocket encountered an error: \(e.message)")
-           } else if let e = error {
-               print("websocket encountered an error: \(e.localizedDescription)")
-           } else {
-               print("websocket encountered an error")
-           }
-       }
     
     private func fetchChatData() {
         
@@ -149,7 +101,6 @@ class ViewController: UIViewController, WebSocketDelegate {
         let chat = Message.init(userName: "Krish", userImageUrl: "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2552&q=80", sentByMe: false, text: chatText)
         
         self.messageArray.append(chat)
-        socket.write(string: chat.text)
         self.chatCollView.reloadData()
         
         let lastItem = self.messageArray.count - 1
@@ -159,7 +110,7 @@ class ViewController: UIViewController, WebSocketDelegate {
     }
 }
 
-extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension ConversationViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         
@@ -250,7 +201,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
     
 }
 
-extension ViewController: UITextFieldDelegate {
+extension ConversationViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         

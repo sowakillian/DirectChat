@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="v7O-NK-1P1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="g36-Vn-bLf">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--ViewController-->
         <scene sceneID="cFm-GW-umg">
             <objects>
-                <viewController storyboardIdentifier="Main" title="Chat VC" id="ps3-9g-nmd" userLabel="ViewController" customClass="ViewController" customModule="DirectChat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Main" title="Chat VC" id="ps3-9g-nmd" userLabel="ViewController" customClass="ConversationViewController" customModule="DirectChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MNL-lr-C6l">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -35,14 +36,14 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="cAC-Px-Dgr">
                                                 <rect key="frame" x="8" y="2" width="398" height="46"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Message" textAlignment="natural" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="xSA-bT-dfz">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Message..." textAlignment="natural" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="xSA-bT-dfz">
                                                         <rect key="frame" x="0.0" y="0.0" width="320.5" height="46"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                         <textInputTraits key="textInputTraits" returnKeyType="send"/>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="755" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xr6-3p-1dZ">
                                                         <rect key="frame" x="328.5" y="0.0" width="69.5" height="46"/>
-                                                        <color key="tintColor" red="0.08235294118" green="0.56862745100000001" blue="0.57254901960000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="tintColor" red="0.019607843140000001" green="0.33725490200000002" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
                                                         <state key="normal" image="sendIcon"/>
                                                         <connections>
                                                             <action selector="onSendChat:" destination="ps3-9g-nmd" eventType="touchUpInside" id="8mu-eQ-EPe"/>
@@ -56,7 +57,7 @@
                                                 </constraints>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="cAC-Px-Dgr" firstAttribute="top" secondItem="r5g-dU-Uab" secondAttribute="top" constant="2" id="EUR-QQ-aj9"/>
                                             <constraint firstAttribute="bottom" secondItem="cAC-Px-Dgr" secondAttribute="bottom" constant="2" id="GSt-Ex-GpP"/>
@@ -97,28 +98,267 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DIr-pr-F2x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="724" y="-1156.3718140929536"/>
+            <point key="canvasLocation" x="2441" y="-1370"/>
+        </scene>
+        <!--Home View Controller-->
+        <scene sceneID="T8E-69-Y4I">
+            <objects>
+                <viewController id="P1n-J1-37k" customClass="HomeViewController" customModule="DirectChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4nQ-Cv-lK5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="37" translatesAutoresizingMaskIntoConstraints="NO" id="z5y-Ze-bl7">
+                                <rect key="frame" x="93" y="339.5" width="228" height="271"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="001-chat" translatesAutoresizingMaskIntoConstraints="NO" id="y8i-yO-m7f">
+                                        <rect key="frame" x="74" y="0.0" width="80" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="Kr0-YQ-384"/>
+                                            <constraint firstAttribute="width" constant="80" id="Q7y-xw-JhC"/>
+                                        </constraints>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wKV-wD-8Qq">
+                                        <rect key="frame" x="14" y="117" width="200" height="69"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bienvenue sur" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nkH-xw-aSf">
+                                                <rect key="frame" x="0.0" y="0.0" width="200" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="25" id="qRn-FX-nQE"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DIRECTCHAT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sos-oy-1X9">
+                                                <rect key="frame" x="0.0" y="33" width="200" height="36"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="200" id="EVd-Ff-CBt"/>
+                                                    <constraint firstAttribute="height" constant="36" id="mKg-pb-uuK"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="30"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5im-Lj-tJN">
+                                        <rect key="frame" x="0.0" y="223" width="228" height="48"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="3D5-fD-Nse"/>
+                                            <constraint firstAttribute="width" constant="228" id="W67-RN-kpM"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                        <state key="normal" title="Rejoindre une room">
+                                            <color key="titleColor" red="0.019607843140000001" green="0.33725490200000002" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="7qx-Sa-IPL" kind="show" id="XM6-v1-Kiz"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="igK-nZ-OUc"/>
+                        <color key="backgroundColor" red="0.019607843137254902" green="0.33725490196078434" blue="0.70980392156862748" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="z5y-Ze-bl7" firstAttribute="centerX" secondItem="igK-nZ-OUc" secondAttribute="centerX" id="fLH-Fp-Y6f"/>
+                            <constraint firstItem="z5y-Ze-bl7" firstAttribute="centerY" secondItem="igK-nZ-OUc" secondAttribute="centerY" id="qEz-G5-Jnb"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="3HN-Pd-NzA"/>
+                    <connections>
+                        <outlet property="joinRoomButton" destination="5im-Lj-tJN" id="Jkl-x1-gcb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gVL-GZ-1kR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="969.56521739130437" y="-1370.0892857142856"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="yzp-wY-uID">
+        <scene sceneID="9Id-M6-Cw1">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="v7O-NK-1P1" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="g36-Vn-bLf" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ovz-6M-YqQ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="g3T-Zp-Jn7">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="ps3-9g-nmd" kind="relationship" relationship="rootViewController" id="w18-QK-4fl"/>
+                        <segue destination="P1n-J1-37k" kind="relationship" relationship="rootViewController" id="JXF-pC-oxn"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4Sl-IL-a2m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BiI-t7-Mwo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-215.19999999999999" y="-1156.3718140929536"/>
+            <point key="canvasLocation" x="208.69565217391306" y="-1370.0892857142856"/>
+        </scene>
+        <!--Room List View Controller-->
+        <scene sceneID="HiI-ly-hRt">
+            <objects>
+                <viewController id="7qx-Sa-IPL" customClass="RoomListViewController" customModule="DirectChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="c3H-bX-Vfa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="5Nz-oF-3VH">
+                                <rect key="frame" x="109" y="125" width="196" height="159"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="001-chat" translatesAutoresizingMaskIntoConstraints="NO" id="D8X-9q-TjO">
+                                        <rect key="frame" x="69" y="0.0" width="58" height="58"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="58" id="QRa-aa-ypR"/>
+                                            <constraint firstAttribute="width" constant="58" id="Qzl-OY-Wx1"/>
+                                        </constraints>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ffd-w5-TXf">
+                                        <rect key="frame" x="0.0" y="90" width="196" height="69"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DIRECTCHAT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KuQ-kt-0Vr">
+                                                <rect key="frame" x="0.0" y="0.0" width="196" height="36"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="36" id="5cR-Df-Z30"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="30"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 rooms actives" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gcu-4G-ZvZ">
+                                                <rect key="frame" x="0.0" y="44" width="196" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="25" id="kWW-F1-qs0"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="tOG-sE-YHs">
+                                <rect key="frame" x="55" y="319" width="304" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GXM-eW-mKl">
+                                        <rect key="frame" x="0.0" y="0.0" width="145" height="30"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="fCW-xY-nHb"/>
+                                            <constraint firstAttribute="width" constant="145" id="z9A-zB-o8R"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                        <state key="normal" title="Créer une room">
+                                            <color key="titleColor" red="0.019607843140000001" green="0.33725490200000002" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="createRoomClicked:" destination="7qx-Sa-IPL" eventType="touchUpInside" id="sLs-Xp-KSh"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PqX-sV-2Qf">
+                                        <rect key="frame" x="159" y="0.0" width="145" height="30"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="sI8-0j-6MY"/>
+                                            <constraint firstAttribute="width" constant="145" id="stW-1g-j9g"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                        <state key="normal" title="Actualiser">
+                                            <color key="titleColor" red="0.019607843140000001" green="0.33725490200000002" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="refreshRoomListClicked:" destination="7qx-Sa-IPL" eventType="touchUpInside" id="T0E-1K-zAW"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zKa-v0-Yhj">
+                                <rect key="frame" x="0.0" y="384" width="414" height="512"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RoomTableViewCell" id="Qzx-yu-YLS" customClass="RoomTableViewCell" customModule="DirectChat" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Qzx-yu-YLS" id="39G-hq-OnY">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Room n° 01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NBa-Cl-tMs">
+                                                    <rect key="frame" x="20" y="11" width="97" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                    <color key="textColor" red="0.019607843140000001" green="0.33725490200000002" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="001-user" translatesAutoresizingMaskIntoConstraints="NO" id="SyF-mx-g9l">
+                                                    <rect key="frame" x="382" y="15" width="12" height="12"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y1J-Rf-ZFb">
+                                                    <rect key="frame" x="336" y="11" width="42" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                    <color key="textColor" red="0.019607843140000001" green="0.33725490200000002" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="roomNumberLabel" destination="NBa-Cl-tMs" id="7Bx-A3-pdP"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="G9T-XS-o1y">
+                                        <rect key="frame" x="0.0" y="71.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="G9T-XS-o1y" id="Y94-Xt-W0M">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="i0e-Lv-wfT">
+                                        <rect key="frame" x="0.0" y="115" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="i0e-Lv-wfT" id="AIE-eM-B8w">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="OSC-DC-gBl"/>
+                        <color key="backgroundColor" red="0.019607843140000001" green="0.33725490200000002" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="zKa-v0-Yhj" firstAttribute="leading" secondItem="OSC-DC-gBl" secondAttribute="leading" id="FIo-1E-9t8"/>
+                            <constraint firstItem="5Nz-oF-3VH" firstAttribute="centerX" secondItem="OSC-DC-gBl" secondAttribute="centerX" id="OS1-oH-ne9"/>
+                            <constraint firstItem="tOG-sE-YHs" firstAttribute="top" secondItem="5Nz-oF-3VH" secondAttribute="bottom" constant="35" id="PRj-gO-pIN"/>
+                            <constraint firstItem="zKa-v0-Yhj" firstAttribute="bottom" secondItem="OSC-DC-gBl" secondAttribute="bottom" constant="34" id="PcE-9l-SYv"/>
+                            <constraint firstItem="OSC-DC-gBl" firstAttribute="trailing" secondItem="zKa-v0-Yhj" secondAttribute="trailing" id="aHC-Xi-CGe"/>
+                            <constraint firstItem="tOG-sE-YHs" firstAttribute="centerX" secondItem="OSC-DC-gBl" secondAttribute="centerX" id="fyV-dd-PBp"/>
+                            <constraint firstItem="5Nz-oF-3VH" firstAttribute="top" secondItem="OSC-DC-gBl" secondAttribute="top" constant="37" id="gZ7-Av-pPc"/>
+                            <constraint firstItem="zKa-v0-Yhj" firstAttribute="top" secondItem="tOG-sE-YHs" secondAttribute="bottom" constant="35" id="mDL-DH-Cth"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="xfM-xC-nue"/>
+                    <connections>
+                        <outlet property="activeRoomsLabel" destination="gcu-4G-ZvZ" id="GCM-r3-yEl"/>
+                        <outlet property="createRoomButton" destination="GXM-eW-mKl" id="eaj-R8-sx7"/>
+                        <outlet property="refreshRoomListButton" destination="PqX-sV-2Qf" id="yc4-gG-aVV"/>
+                        <outlet property="roomListTableView" destination="zKa-v0-Yhj" id="xZZ-3j-Hsv"/>
+                        <segue destination="ps3-9g-nmd" kind="show" identifier="toConversation" id="JE9-uS-Qka"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KBF-2L-Uwo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1700.0000000000002" y="-1370.0892857142856"/>
         </scene>
     </scenes>
     <resources>
+        <image name="001-chat" width="76" height="76"/>
+        <image name="001-user" width="12" height="12"/>
         <image name="sendIcon" width="30" height="30"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
