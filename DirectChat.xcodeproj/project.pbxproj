@@ -1,0 +1,820 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		55E49202ED62198688DB43EB /* Pods_DirectChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF08621CC5AA8420E94362B3 /* Pods_DirectChat.framework */; };
+		76D163562E421020A8858701 /* Pods_DirectChatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B7557DE64C52497DA566E02 /* Pods_DirectChatTests.framework */; };
+		7B36CCA325CAB1D600019DF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B36CCA225CAB1D600019DF3 /* AppDelegate.swift */; };
+		7B36CCA525CAB1D600019DF3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B36CCA425CAB1D600019DF3 /* SceneDelegate.swift */; };
+		7B36CCA725CAB1D600019DF3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B36CCA625CAB1D600019DF3 /* ViewController.swift */; };
+		7B36CCAA25CAB1D600019DF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B36CCA825CAB1D600019DF3 /* Main.storyboard */; };
+		7B36CCAC25CAB1D800019DF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B36CCAB25CAB1D800019DF3 /* Assets.xcassets */; };
+		7B36CCAF25CAB1D800019DF3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B36CCAD25CAB1D800019DF3 /* LaunchScreen.storyboard */; };
+		7B36CCBA25CAB1D800019DF3 /* DirectChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B36CCB925CAB1D800019DF3 /* DirectChatTests.swift */; };
+		7B36CCC525CAB1D800019DF3 /* DirectChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B36CCC425CAB1D800019DF3 /* DirectChatUITests.swift */; };
+		7B36CCD825CAB20B00019DF3 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B36CCD725CAB20B00019DF3 /* UIViewExtension.swift */; };
+		7B36CCE025CAB25700019DF3 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B36CCDF25CAB25700019DF3 /* Message.swift */; };
+		7B36CCF425CAB34500019DF3 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B36CCF325CAB34500019DF3 /* BaseCollectionViewCell.swift */; };
+		7B36CCFC25CAB38300019DF3 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B36CCFB25CAB38300019DF3 /* MessageCell.swift */; };
+		7B36CD0225CAB4EB00019DF3 /* message.json in Resources */ = {isa = PBXBuildFile; fileRef = 7B36CD0125CAB4EB00019DF3 /* message.json */; };
+		7B36CD1A25CAB5B300019DF3 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B36CD1925CAB5B300019DF3 /* Spinner.swift */; };
+		7B77EF9025CBDD070073BD9A /* Communication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B77EF8F25CBDD070073BD9A /* Communication.swift */; };
+		D367F0041C1DDEF84F0E8ABB /* Pods_DirectChat_DirectChatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A2D04129B818A6F2770C3F1 /* Pods_DirectChat_DirectChatUITests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7B36CCB625CAB1D800019DF3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7B36CC9725CAB1D600019DF3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7B36CC9E25CAB1D600019DF3;
+			remoteInfo = DirectChat;
+		};
+		7B36CCC125CAB1D800019DF3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7B36CC9725CAB1D600019DF3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7B36CC9E25CAB1D600019DF3;
+			remoteInfo = DirectChat;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2B7557DE64C52497DA566E02 /* Pods_DirectChatTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DirectChatTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A2D04129B818A6F2770C3F1 /* Pods_DirectChat_DirectChatUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DirectChat_DirectChatUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3EBAC9268BFF17E4A99FA4FA /* Pods-DirectChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DirectChat.release.xcconfig"; path = "Target Support Files/Pods-DirectChat/Pods-DirectChat.release.xcconfig"; sourceTree = "<group>"; };
+		5971B6B2A7BF71CEA6819110 /* Pods-DirectChat-DirectChatUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DirectChat-DirectChatUITests.release.xcconfig"; path = "Target Support Files/Pods-DirectChat-DirectChatUITests/Pods-DirectChat-DirectChatUITests.release.xcconfig"; sourceTree = "<group>"; };
+		7B36CC9F25CAB1D600019DF3 /* DirectChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DirectChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B36CCA225CAB1D600019DF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7B36CCA425CAB1D600019DF3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		7B36CCA625CAB1D600019DF3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7B36CCA925CAB1D600019DF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7B36CCAB25CAB1D800019DF3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7B36CCAE25CAB1D800019DF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7B36CCB025CAB1D800019DF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7B36CCB525CAB1D800019DF3 /* DirectChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DirectChatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B36CCB925CAB1D800019DF3 /* DirectChatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectChatTests.swift; sourceTree = "<group>"; };
+		7B36CCBB25CAB1D800019DF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7B36CCC025CAB1D800019DF3 /* DirectChatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DirectChatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B36CCC425CAB1D800019DF3 /* DirectChatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectChatUITests.swift; sourceTree = "<group>"; };
+		7B36CCC625CAB1D800019DF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7B36CCD725CAB20B00019DF3 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		7B36CCDF25CAB25700019DF3 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		7B36CCF325CAB34500019DF3 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		7B36CCFB25CAB38300019DF3 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		7B36CD0125CAB4EB00019DF3 /* message.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = message.json; sourceTree = "<group>"; };
+		7B36CD1925CAB5B300019DF3 /* Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
+		7B77EF8F25CBDD070073BD9A /* Communication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Communication.swift; sourceTree = "<group>"; };
+		BBB34C764F8A184AE34D26C2 /* Pods-DirectChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DirectChatTests.debug.xcconfig"; path = "Target Support Files/Pods-DirectChatTests/Pods-DirectChatTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BC11C2DC7A667FB1524BA483 /* Pods-DirectChatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DirectChatTests.release.xcconfig"; path = "Target Support Files/Pods-DirectChatTests/Pods-DirectChatTests.release.xcconfig"; sourceTree = "<group>"; };
+		EF08621CC5AA8420E94362B3 /* Pods_DirectChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DirectChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F686FEBAF57B9306C14E42FE /* Pods-DirectChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DirectChat.debug.xcconfig"; path = "Target Support Files/Pods-DirectChat/Pods-DirectChat.debug.xcconfig"; sourceTree = "<group>"; };
+		FC8C7865CBC46EFBBBA5F2D3 /* Pods-DirectChat-DirectChatUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DirectChat-DirectChatUITests.debug.xcconfig"; path = "Target Support Files/Pods-DirectChat-DirectChatUITests/Pods-DirectChat-DirectChatUITests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7B36CC9C25CAB1D600019DF3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55E49202ED62198688DB43EB /* Pods_DirectChat.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B36CCB225CAB1D800019DF3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				76D163562E421020A8858701 /* Pods_DirectChatTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B36CCBD25CAB1D800019DF3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D367F0041C1DDEF84F0E8ABB /* Pods_DirectChat_DirectChatUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3C6C8B86FC8F7379D0AF74A5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F686FEBAF57B9306C14E42FE /* Pods-DirectChat.debug.xcconfig */,
+				3EBAC9268BFF17E4A99FA4FA /* Pods-DirectChat.release.xcconfig */,
+				FC8C7865CBC46EFBBBA5F2D3 /* Pods-DirectChat-DirectChatUITests.debug.xcconfig */,
+				5971B6B2A7BF71CEA6819110 /* Pods-DirectChat-DirectChatUITests.release.xcconfig */,
+				BBB34C764F8A184AE34D26C2 /* Pods-DirectChatTests.debug.xcconfig */,
+				BC11C2DC7A667FB1524BA483 /* Pods-DirectChatTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		7B36CC9625CAB1D600019DF3 = {
+			isa = PBXGroup;
+			children = (
+				7B36CCA125CAB1D600019DF3 /* DirectChat */,
+				7B36CCB825CAB1D800019DF3 /* DirectChatTests */,
+				7B36CCC325CAB1D800019DF3 /* DirectChatUITests */,
+				7B36CCA025CAB1D600019DF3 /* Products */,
+				3C6C8B86FC8F7379D0AF74A5 /* Pods */,
+				D83D372F15D3939289EE8A3F /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		7B36CCA025CAB1D600019DF3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7B36CC9F25CAB1D600019DF3 /* DirectChat.app */,
+				7B36CCB525CAB1D800019DF3 /* DirectChatTests.xctest */,
+				7B36CCC025CAB1D800019DF3 /* DirectChatUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7B36CCA125CAB1D600019DF3 /* DirectChat */ = {
+			isa = PBXGroup;
+			children = (
+				7B77EF9425CBDD9D0073BD9A /* Network */,
+				7B36CD0025CAB4CC00019DF3 /* Utils */,
+				7B36CCD625CAB20000019DF3 /* Extensions */,
+				7B36CCD525CAB1EF00019DF3 /* Model */,
+				7B36CCEF25CAB31C00019DF3 /* View */,
+				7B36CCA225CAB1D600019DF3 /* AppDelegate.swift */,
+				7B36CCA425CAB1D600019DF3 /* SceneDelegate.swift */,
+				7B36CCA625CAB1D600019DF3 /* ViewController.swift */,
+				7B36CCA825CAB1D600019DF3 /* Main.storyboard */,
+				7B36CCAB25CAB1D800019DF3 /* Assets.xcassets */,
+				7B36CCAD25CAB1D800019DF3 /* LaunchScreen.storyboard */,
+				7B36CCB025CAB1D800019DF3 /* Info.plist */,
+			);
+			path = DirectChat;
+			sourceTree = "<group>";
+		};
+		7B36CCB825CAB1D800019DF3 /* DirectChatTests */ = {
+			isa = PBXGroup;
+			children = (
+				7B36CCB925CAB1D800019DF3 /* DirectChatTests.swift */,
+				7B36CCBB25CAB1D800019DF3 /* Info.plist */,
+			);
+			path = DirectChatTests;
+			sourceTree = "<group>";
+		};
+		7B36CCC325CAB1D800019DF3 /* DirectChatUITests */ = {
+			isa = PBXGroup;
+			children = (
+				7B36CCC425CAB1D800019DF3 /* DirectChatUITests.swift */,
+				7B36CCC625CAB1D800019DF3 /* Info.plist */,
+			);
+			path = DirectChatUITests;
+			sourceTree = "<group>";
+		};
+		7B36CCD525CAB1EF00019DF3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7B36CCDF25CAB25700019DF3 /* Message.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7B36CCD625CAB20000019DF3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7B36CCD725CAB20B00019DF3 /* UIViewExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7B36CCEF25CAB31C00019DF3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7B36CCF325CAB34500019DF3 /* BaseCollectionViewCell.swift */,
+				7B36CCFB25CAB38300019DF3 /* MessageCell.swift */,
+				7B36CD1925CAB5B300019DF3 /* Spinner.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7B36CD0025CAB4CC00019DF3 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				7B36CD0125CAB4EB00019DF3 /* message.json */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		7B77EF9425CBDD9D0073BD9A /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				7B77EF8F25CBDD070073BD9A /* Communication.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		D83D372F15D3939289EE8A3F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EF08621CC5AA8420E94362B3 /* Pods_DirectChat.framework */,
+				3A2D04129B818A6F2770C3F1 /* Pods_DirectChat_DirectChatUITests.framework */,
+				2B7557DE64C52497DA566E02 /* Pods_DirectChatTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7B36CC9E25CAB1D600019DF3 /* DirectChat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B36CCC925CAB1D800019DF3 /* Build configuration list for PBXNativeTarget "DirectChat" */;
+			buildPhases = (
+				16F6CF66B6D00C4645302374 /* [CP] Check Pods Manifest.lock */,
+				7B36CC9B25CAB1D600019DF3 /* Sources */,
+				7B36CC9C25CAB1D600019DF3 /* Frameworks */,
+				7B36CC9D25CAB1D600019DF3 /* Resources */,
+				6A9CB5DB4BD2B921F4A667E8 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DirectChat;
+			productName = DirectChat;
+			productReference = 7B36CC9F25CAB1D600019DF3 /* DirectChat.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7B36CCB425CAB1D800019DF3 /* DirectChatTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B36CCCC25CAB1D800019DF3 /* Build configuration list for PBXNativeTarget "DirectChatTests" */;
+			buildPhases = (
+				4A5A34ACA44477B1EF18BEB2 /* [CP] Check Pods Manifest.lock */,
+				7B36CCB125CAB1D800019DF3 /* Sources */,
+				7B36CCB225CAB1D800019DF3 /* Frameworks */,
+				7B36CCB325CAB1D800019DF3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7B36CCB725CAB1D800019DF3 /* PBXTargetDependency */,
+			);
+			name = DirectChatTests;
+			productName = DirectChatTests;
+			productReference = 7B36CCB525CAB1D800019DF3 /* DirectChatTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		7B36CCBF25CAB1D800019DF3 /* DirectChatUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B36CCCF25CAB1D800019DF3 /* Build configuration list for PBXNativeTarget "DirectChatUITests" */;
+			buildPhases = (
+				D4FC81CE444C6BED0C39591A /* [CP] Check Pods Manifest.lock */,
+				7B36CCBC25CAB1D800019DF3 /* Sources */,
+				7B36CCBD25CAB1D800019DF3 /* Frameworks */,
+				7B36CCBE25CAB1D800019DF3 /* Resources */,
+				6EB345A6BD8DC73D5832EF9B /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7B36CCC225CAB1D800019DF3 /* PBXTargetDependency */,
+			);
+			name = DirectChatUITests;
+			productName = DirectChatUITests;
+			productReference = 7B36CCC025CAB1D800019DF3 /* DirectChatUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7B36CC9725CAB1D600019DF3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1230;
+				LastUpgradeCheck = 1230;
+				TargetAttributes = {
+					7B36CC9E25CAB1D600019DF3 = {
+						CreatedOnToolsVersion = 12.3;
+					};
+					7B36CCB425CAB1D800019DF3 = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = 7B36CC9E25CAB1D600019DF3;
+					};
+					7B36CCBF25CAB1D800019DF3 = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = 7B36CC9E25CAB1D600019DF3;
+					};
+				};
+			};
+			buildConfigurationList = 7B36CC9A25CAB1D600019DF3 /* Build configuration list for PBXProject "DirectChat" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7B36CC9625CAB1D600019DF3;
+			productRefGroup = 7B36CCA025CAB1D600019DF3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7B36CC9E25CAB1D600019DF3 /* DirectChat */,
+				7B36CCB425CAB1D800019DF3 /* DirectChatTests */,
+				7B36CCBF25CAB1D800019DF3 /* DirectChatUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7B36CC9D25CAB1D600019DF3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B36CCAF25CAB1D800019DF3 /* LaunchScreen.storyboard in Resources */,
+				7B36CD0225CAB4EB00019DF3 /* message.json in Resources */,
+				7B36CCAC25CAB1D800019DF3 /* Assets.xcassets in Resources */,
+				7B36CCAA25CAB1D600019DF3 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B36CCB325CAB1D800019DF3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B36CCBE25CAB1D800019DF3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		16F6CF66B6D00C4645302374 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DirectChat-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4A5A34ACA44477B1EF18BEB2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DirectChatTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6A9CB5DB4BD2B921F4A667E8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DirectChat/Pods-DirectChat-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DirectChat/Pods-DirectChat-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DirectChat/Pods-DirectChat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6EB345A6BD8DC73D5832EF9B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DirectChat-DirectChatUITests/Pods-DirectChat-DirectChatUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DirectChat-DirectChatUITests/Pods-DirectChat-DirectChatUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DirectChat-DirectChatUITests/Pods-DirectChat-DirectChatUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D4FC81CE444C6BED0C39591A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DirectChat-DirectChatUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7B36CC9B25CAB1D600019DF3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B36CCA725CAB1D600019DF3 /* ViewController.swift in Sources */,
+				7B36CCA325CAB1D600019DF3 /* AppDelegate.swift in Sources */,
+				7B77EF9025CBDD070073BD9A /* Communication.swift in Sources */,
+				7B36CCD825CAB20B00019DF3 /* UIViewExtension.swift in Sources */,
+				7B36CCE025CAB25700019DF3 /* Message.swift in Sources */,
+				7B36CCA525CAB1D600019DF3 /* SceneDelegate.swift in Sources */,
+				7B36CCF425CAB34500019DF3 /* BaseCollectionViewCell.swift in Sources */,
+				7B36CCFC25CAB38300019DF3 /* MessageCell.swift in Sources */,
+				7B36CD1A25CAB5B300019DF3 /* Spinner.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B36CCB125CAB1D800019DF3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B36CCBA25CAB1D800019DF3 /* DirectChatTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B36CCBC25CAB1D800019DF3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B36CCC525CAB1D800019DF3 /* DirectChatUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7B36CCB725CAB1D800019DF3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7B36CC9E25CAB1D600019DF3 /* DirectChat */;
+			targetProxy = 7B36CCB625CAB1D800019DF3 /* PBXContainerItemProxy */;
+		};
+		7B36CCC225CAB1D800019DF3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7B36CC9E25CAB1D600019DF3 /* DirectChat */;
+			targetProxy = 7B36CCC125CAB1D800019DF3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7B36CCA825CAB1D600019DF3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7B36CCA925CAB1D600019DF3 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7B36CCAD25CAB1D800019DF3 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7B36CCAE25CAB1D800019DF3 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7B36CCC725CAB1D800019DF3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7B36CCC825CAB1D800019DF3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7B36CCCA25CAB1D800019DF3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F686FEBAF57B9306C14E42FE /* Pods-DirectChat.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 37J2MVMMBY;
+				INFOPLIST_FILE = DirectChat/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bddi.DirectChat;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7B36CCCB25CAB1D800019DF3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3EBAC9268BFF17E4A99FA4FA /* Pods-DirectChat.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 37J2MVMMBY;
+				INFOPLIST_FILE = DirectChat/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bddi.DirectChat;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		7B36CCCD25CAB1D800019DF3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BBB34C764F8A184AE34D26C2 /* Pods-DirectChatTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 37J2MVMMBY;
+				INFOPLIST_FILE = DirectChatTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bddi.DirectChatTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DirectChat.app/DirectChat";
+			};
+			name = Debug;
+		};
+		7B36CCCE25CAB1D800019DF3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC11C2DC7A667FB1524BA483 /* Pods-DirectChatTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 37J2MVMMBY;
+				INFOPLIST_FILE = DirectChatTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bddi.DirectChatTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DirectChat.app/DirectChat";
+			};
+			name = Release;
+		};
+		7B36CCD025CAB1D800019DF3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FC8C7865CBC46EFBBBA5F2D3 /* Pods-DirectChat-DirectChatUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 37J2MVMMBY;
+				INFOPLIST_FILE = DirectChatUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bddi.DirectChatUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = DirectChat;
+			};
+			name = Debug;
+		};
+		7B36CCD125CAB1D800019DF3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5971B6B2A7BF71CEA6819110 /* Pods-DirectChat-DirectChatUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 37J2MVMMBY;
+				INFOPLIST_FILE = DirectChatUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bddi.DirectChatUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = DirectChat;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7B36CC9A25CAB1D600019DF3 /* Build configuration list for PBXProject "DirectChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B36CCC725CAB1D800019DF3 /* Debug */,
+				7B36CCC825CAB1D800019DF3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7B36CCC925CAB1D800019DF3 /* Build configuration list for PBXNativeTarget "DirectChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B36CCCA25CAB1D800019DF3 /* Debug */,
+				7B36CCCB25CAB1D800019DF3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7B36CCCC25CAB1D800019DF3 /* Build configuration list for PBXNativeTarget "DirectChatTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B36CCCD25CAB1D800019DF3 /* Debug */,
+				7B36CCCE25CAB1D800019DF3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7B36CCCF25CAB1D800019DF3 /* Build configuration list for PBXNativeTarget "DirectChatUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B36CCD025CAB1D800019DF3 /* Debug */,
+				7B36CCD125CAB1D800019DF3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7B36CC9725CAB1D600019DF3 /* Project object */;
+}
