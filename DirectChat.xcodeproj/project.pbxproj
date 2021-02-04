@@ -24,6 +24,8 @@
 		7B36CD0225CAB4EB00019DF3 /* message.json in Resources */ = {isa = PBXBuildFile; fileRef = 7B36CD0125CAB4EB00019DF3 /* message.json */; };
 		7B36CD1A25CAB5B300019DF3 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B36CD1925CAB5B300019DF3 /* Spinner.swift */; };
 		7B77EF9025CBDD070073BD9A /* Communication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B77EF8F25CBDD070073BD9A /* Communication.swift */; };
+		7B77EF9925CBE5B60073BD9A /* WirelessCommunication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B77EF9825CBE5B60073BD9A /* WirelessCommunication.swift */; };
+		7B77EFA425CBE6020073BD9A /* AuthorizedExchangeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B77EFA325CBE6020073BD9A /* AuthorizedExchangeType.swift */; };
 		D367F0041C1DDEF84F0E8ABB /* Pods_DirectChat_DirectChatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A2D04129B818A6F2770C3F1 /* Pods_DirectChat_DirectChatUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +72,8 @@
 		7B36CD0125CAB4EB00019DF3 /* message.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = message.json; sourceTree = "<group>"; };
 		7B36CD1925CAB5B300019DF3 /* Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
 		7B77EF8F25CBDD070073BD9A /* Communication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Communication.swift; sourceTree = "<group>"; };
+		7B77EF9825CBE5B60073BD9A /* WirelessCommunication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WirelessCommunication.swift; sourceTree = "<group>"; };
+		7B77EFA325CBE6020073BD9A /* AuthorizedExchangeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizedExchangeType.swift; sourceTree = "<group>"; };
 		BBB34C764F8A184AE34D26C2 /* Pods-DirectChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DirectChatTests.debug.xcconfig"; path = "Target Support Files/Pods-DirectChatTests/Pods-DirectChatTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BC11C2DC7A667FB1524BA483 /* Pods-DirectChatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DirectChatTests.release.xcconfig"; path = "Target Support Files/Pods-DirectChatTests/Pods-DirectChatTests.release.xcconfig"; sourceTree = "<group>"; };
 		EF08621CC5AA8420E94362B3 /* Pods_DirectChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DirectChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,11 +147,13 @@
 		7B36CCA125CAB1D600019DF3 /* DirectChat */ = {
 			isa = PBXGroup;
 			children = (
-				7B77EF9425CBDD9D0073BD9A /* Network */,
+				7B77EFA025CBE5C60073BD9A /* Wireless */,
+				7B77EF9425CBDD9D0073BD9A /* Generics */,
 				7B36CD0025CAB4CC00019DF3 /* Utils */,
 				7B36CCD625CAB20000019DF3 /* Extensions */,
 				7B36CCD525CAB1EF00019DF3 /* Model */,
 				7B36CCEF25CAB31C00019DF3 /* View */,
+				7B77EFAB25CBE6530073BD9A /* Controller */,
 				7B36CCA225CAB1D600019DF3 /* AppDelegate.swift */,
 				7B36CCA425CAB1D600019DF3 /* SceneDelegate.swift */,
 				7B36CCA625CAB1D600019DF3 /* ViewController.swift */,
@@ -211,12 +217,44 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		7B77EF9425CBDD9D0073BD9A /* Network */ = {
+		7B77EF9425CBDD9D0073BD9A /* Generics */ = {
 			isa = PBXGroup;
 			children = (
+				7B77EFA325CBE6020073BD9A /* AuthorizedExchangeType.swift */,
 				7B77EF8F25CBDD070073BD9A /* Communication.swift */,
+				7B77EF9825CBE5B60073BD9A /* WirelessCommunication.swift */,
 			);
-			path = Network;
+			path = Generics;
+			sourceTree = "<group>";
+		};
+		7B77EFA025CBE5C60073BD9A /* Wireless */ = {
+			isa = PBXGroup;
+			children = (
+				7B77EFA225CBE5D30073BD9A /* WIFI */,
+				7B77EFA125CBE5CE0073BD9A /* BLE */,
+			);
+			path = Wireless;
+			sourceTree = "<group>";
+		};
+		7B77EFA125CBE5CE0073BD9A /* BLE */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BLE;
+			sourceTree = "<group>";
+		};
+		7B77EFA225CBE5D30073BD9A /* WIFI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = WIFI;
+			sourceTree = "<group>";
+		};
+		7B77EFAB25CBE6530073BD9A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		D83D372F15D3939289EE8A3F /* Frameworks */ = {
@@ -470,6 +508,8 @@
 			files = (
 				7B36CCA725CAB1D600019DF3 /* ViewController.swift in Sources */,
 				7B36CCA325CAB1D600019DF3 /* AppDelegate.swift in Sources */,
+				7B77EFA425CBE6020073BD9A /* AuthorizedExchangeType.swift in Sources */,
+				7B77EF9925CBE5B60073BD9A /* WirelessCommunication.swift in Sources */,
 				7B77EF9025CBDD070073BD9A /* Communication.swift in Sources */,
 				7B36CCD825CAB20B00019DF3 /* UIViewExtension.swift in Sources */,
 				7B36CCE025CAB25700019DF3 /* Message.swift in Sources */,
