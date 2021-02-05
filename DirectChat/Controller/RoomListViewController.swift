@@ -45,6 +45,7 @@ class RoomListViewController: UIViewController {
         if segue.identifier == "toConversation" {
                 if let dest = segue.destination as? ConversationViewController {
                     if let selectedRoomId = selectedRoomId {
+                        print("selectedRoomId", selectedRoomId)
                         dest.socketRoomConnection = RoomConnectionSocket(roomId: selectedRoomId)
                     }
                 }

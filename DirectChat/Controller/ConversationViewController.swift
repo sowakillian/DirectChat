@@ -26,11 +26,27 @@ class ConversationViewController: UIViewController {
         self.assignDelegates()
         self.manageInputEventsForTheSubViews()
         
+        print("socketRoomConnection", socketRoomConnection)
         socketRoomConnection?.connect()
         
-        socketRoomConnection?.listen { message in
-            self.messageArray.append(Message(userName: message.sender, userImageUrl: "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2552&q=80", sentByMe: false, text: message.content))
-            self.chatCollView.reloadData()
+        socketRoomConnection?.listen { messageList in
+            self.messageArray = []
+            print(messageList)
+            let messageListSplitted = messageList.components(separatedBy: "$$")
+            
+            print("messageListSplitted", messageListSplitted)
+            if  messageListSplitted[0] == "" {
+                print("no messages")
+            } else {
+                messageListSplitted.forEach { (message) in
+                    let messageObject = MessageObject.fromString(message: message)
+                    let messageConverted = Message(userName: "toto", userImageUrl: "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2552&q=80", sentByMe: false, text: messageObject.content)
+                    self.messageArray.append(messageConverted)
+                }
+                self.chatCollView.reloadData()
+            }
+            
+            
         }
     }
     

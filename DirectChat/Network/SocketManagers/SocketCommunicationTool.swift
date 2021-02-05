@@ -18,7 +18,7 @@ class SocketCommunicationTool: SocketCommunication, WebSocketDelegate {
     }
     
     func connect() {
-        var request = URLRequest(url: URL(string: "http://172.20.10.2:9090/\(connectionType)")!)
+        var request = URLRequest(url: URL(string: "http://172.20.10.2:9070/\(connectionType)")!)
         request.timeoutInterval = 5
         socket = WebSocket(request: request)
         socket.delegate = self
