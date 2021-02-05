@@ -14,7 +14,7 @@ class ConversationViewController: UIViewController {
     @IBOutlet var chatCollView: UICollectionView!
     @IBOutlet var inputViewContainerBottomConstraint: NSLayoutConstraint!
     @IBOutlet var chatTF: UITextField!
-    var socketRoomConnection:SocketServer? = nil
+    var socketRoomConnection:RoomConnectionSocket? = nil
     
     private(set) var messageArray: [Message] = []
     

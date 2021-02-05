@@ -27,9 +27,13 @@
 		7B77F05025CC2A6D0073BD9A /* MessageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B77F04F25CC2A6D0073BD9A /* MessageType.swift */; };
 		7BCD724625CC80DF008E9E99 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCD724525CC80DF008E9E99 /* HomeViewController.swift */; };
 		7BCD725725CC81C9008E9E99 /* RoomListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCD725625CC81C9008E9E99 /* RoomListViewController.swift */; };
-		7BCD725D25CC8A1E008E9E99 /* SocketConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCD725C25CC8A1E008E9E99 /* SocketConnection.swift */; };
 		7BCD726825CC95BA008E9E99 /* RoomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCD726725CC95BA008E9E99 /* RoomTableViewCell.swift */; };
 		7BCD727625CC9CC0008E9E99 /* ConnectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCD727525CC9CC0008E9E99 /* ConnectionType.swift */; };
+		7BCD727C25CD17D3008E9E99 /* SocketCommunication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCD727B25CD17D3008E9E99 /* SocketCommunication.swift */; };
+		7BCD728125CD18CA008E9E99 /* SocketCommunicationTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCD728025CD18CA008E9E99 /* SocketCommunicationTool.swift */; };
+		7BCD728625CD1A6A008E9E99 /* RoomListSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCD728525CD1A6A008E9E99 /* RoomListSocket.swift */; };
+		7BCD728B25CD1A79008E9E99 /* RoomCreationSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCD728A25CD1A79008E9E99 /* RoomCreationSocket.swift */; };
+		7BCD729025CD1A88008E9E99 /* RoomConnectionSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCD728F25CD1A88008E9E99 /* RoomConnectionSocket.swift */; };
 		D367F0041C1DDEF84F0E8ABB /* Pods_DirectChat_DirectChatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A2D04129B818A6F2770C3F1 /* Pods_DirectChat_DirectChatUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -79,9 +83,13 @@
 		7B77F04F25CC2A6D0073BD9A /* MessageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageType.swift; sourceTree = "<group>"; };
 		7BCD724525CC80DF008E9E99 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7BCD725625CC81C9008E9E99 /* RoomListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomListViewController.swift; sourceTree = "<group>"; };
-		7BCD725C25CC8A1E008E9E99 /* SocketConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketConnection.swift; sourceTree = "<group>"; };
 		7BCD726725CC95BA008E9E99 /* RoomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomTableViewCell.swift; sourceTree = "<group>"; };
 		7BCD727525CC9CC0008E9E99 /* ConnectionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionType.swift; sourceTree = "<group>"; };
+		7BCD727B25CD17D3008E9E99 /* SocketCommunication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketCommunication.swift; sourceTree = "<group>"; };
+		7BCD728025CD18CA008E9E99 /* SocketCommunicationTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketCommunicationTool.swift; sourceTree = "<group>"; };
+		7BCD728525CD1A6A008E9E99 /* RoomListSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomListSocket.swift; sourceTree = "<group>"; };
+		7BCD728A25CD1A79008E9E99 /* RoomCreationSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomCreationSocket.swift; sourceTree = "<group>"; };
+		7BCD728F25CD1A88008E9E99 /* RoomConnectionSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomConnectionSocket.swift; sourceTree = "<group>"; };
 		BBB34C764F8A184AE34D26C2 /* Pods-DirectChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DirectChatTests.debug.xcconfig"; path = "Target Support Files/Pods-DirectChatTests/Pods-DirectChatTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BC11C2DC7A667FB1524BA483 /* Pods-DirectChatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DirectChatTests.release.xcconfig"; path = "Target Support Files/Pods-DirectChatTests/Pods-DirectChatTests.release.xcconfig"; sourceTree = "<group>"; };
 		EF08621CC5AA8420E94362B3 /* Pods_DirectChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DirectChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -256,9 +264,29 @@
 		7BCD725B25CC89E5008E9E99 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				7BCD725C25CC8A1E008E9E99 /* SocketConnection.swift */,
+				7BCD727A25CD1770008E9E99 /* SocketManagers */,
+				7BCD72A025CD2EF1008E9E99 /* SocketInstantiations */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		7BCD727A25CD1770008E9E99 /* SocketManagers */ = {
+			isa = PBXGroup;
+			children = (
+				7BCD727B25CD17D3008E9E99 /* SocketCommunication.swift */,
+				7BCD728025CD18CA008E9E99 /* SocketCommunicationTool.swift */,
+			);
+			path = SocketManagers;
+			sourceTree = "<group>";
+		};
+		7BCD72A025CD2EF1008E9E99 /* SocketInstantiations */ = {
+			isa = PBXGroup;
+			children = (
+				7BCD728F25CD1A88008E9E99 /* RoomConnectionSocket.swift */,
+				7BCD728A25CD1A79008E9E99 /* RoomCreationSocket.swift */,
+				7BCD728525CD1A6A008E9E99 /* RoomListSocket.swift */,
+			);
+			path = SocketInstantiations;
 			sourceTree = "<group>";
 		};
 		D83D372F15D3939289EE8A3F /* Frameworks */ = {
@@ -511,17 +539,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BCD727625CC9CC0008E9E99 /* ConnectionType.swift in Sources */,
+				7BCD728625CD1A6A008E9E99 /* RoomListSocket.swift in Sources */,
 				7B77F04A25CC29950073BD9A /* MessageObject.swift in Sources */,
+				7BCD729025CD1A88008E9E99 /* RoomConnectionSocket.swift in Sources */,
 				7B36CCA725CAB1D600019DF3 /* ConversationViewController.swift in Sources */,
+				7BCD727C25CD17D3008E9E99 /* SocketCommunication.swift in Sources */,
 				7B36CCA325CAB1D600019DF3 /* AppDelegate.swift in Sources */,
 				7BCD725725CC81C9008E9E99 /* RoomListViewController.swift in Sources */,
 				7BCD726825CC95BA008E9E99 /* RoomTableViewCell.swift in Sources */,
+				7BCD728125CD18CA008E9E99 /* SocketCommunicationTool.swift in Sources */,
 				7B77F05025CC2A6D0073BD9A /* MessageType.swift in Sources */,
-				7BCD725D25CC8A1E008E9E99 /* SocketConnection.swift in Sources */,
 				7B36CCD825CAB20B00019DF3 /* UIViewExtension.swift in Sources */,
 				7B36CCE025CAB25700019DF3 /* Message.swift in Sources */,
 				7BCD724625CC80DF008E9E99 /* HomeViewController.swift in Sources */,
 				7B36CCA525CAB1D600019DF3 /* SceneDelegate.swift in Sources */,
+				7BCD728B25CD1A79008E9E99 /* RoomCreationSocket.swift in Sources */,
 				7B36CCF425CAB34500019DF3 /* BaseCollectionViewCell.swift in Sources */,
 				7B36CCFC25CAB38300019DF3 /* MessageCell.swift in Sources */,
 				7B36CD1A25CAB5B300019DF3 /* Spinner.swift in Sources */,

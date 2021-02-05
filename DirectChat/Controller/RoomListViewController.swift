@@ -14,8 +14,8 @@ class RoomListViewController: UIViewController {
     @IBOutlet weak var refreshRoomListButton: UIButton!
     @IBOutlet weak var activeRoomsLabel: UILabel!
     
-    let socketCreation = SocketServer(connectionType: .roomCreation)
-    let socketRoomList = SocketServer(connectionType: .roomList)
+    let socketCreation = RoomCreationSocket()
+    let socketRoomList = RoomListSocket()
     
     @IBOutlet weak var roomListTableView: UITableView!
     
@@ -36,17 +36,19 @@ class RoomListViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
     }
     
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toConversation" {
                 if let dest = segue.destination as? ConversationViewController {
-                    dest.socketRoomConnection = SocketServer(connectionType: .roomConnection, roomId: selectedRoomId)
+                    if let selectedRoomId = selectedRoomId {
+                        dest.socketRoomConnection = RoomConnectionSocket(roomId: selectedRoomId)
+                    }
                 }
             }
     }
     
     @IBAction func refreshRoomListClicked(_ sender: Any) {
         socketRoomList.connect()
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             self.roomList = self.socketRoomList.roomList
             self.roomListTableView.reloadData()
