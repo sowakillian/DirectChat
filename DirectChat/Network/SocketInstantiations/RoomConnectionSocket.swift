@@ -9,6 +9,7 @@ import Foundation
 import Starscream
 
 class RoomConnectionSocket:SocketCommunicationTool {
+    var messageReceivedClosure: ((MessageObject)->())?
     var roomId: String
     
     init(roomId: String, connectionType: ConnectionType = .roomConnection) {
@@ -36,6 +37,8 @@ class RoomConnectionSocket:SocketCommunicationTool {
             print("websocket of type \(connectionType) is disconnected: \(reason) with code: \(code)")
         case .text(let string):
             print("Received text: \(string)")
+            let messageReceived = MessageObject.fromString(message: string)
+            self.messageReceivedClosure!(messageReceived)
         case .binary(let data):
             print("Received data: \(data.count)")
         case .ping(_):
@@ -53,5 +56,9 @@ class RoomConnectionSocket:SocketCommunicationTool {
             handleError(error)
         }
         
+    }
+    
+    func listen(callBack: @escaping ((MessageObject)->())) {
+        self.messageReceivedClosure = callBack
     }
 }

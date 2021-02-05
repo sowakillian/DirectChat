@@ -27,6 +27,11 @@ class ConversationViewController: UIViewController {
         self.manageInputEventsForTheSubViews()
         
         socketRoomConnection?.connect()
+        
+        socketRoomConnection?.listen { message in
+            self.messageArray.append(Message(userName: message.sender, userImageUrl: "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2552&q=80", sentByMe: false, text: message.content))
+            self.chatCollView.reloadData()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -98,10 +103,8 @@ class ConversationViewController: UIViewController {
         
         guard let chatText = chatTF.text, chatText.count >= 1 else { return }
         chatTF.text = ""
-        let chat = Message.init(userName: "Krish", userImageUrl: "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2552&q=80", sentByMe: false, text: chatText)
         
-        self.messageArray.append(chat)
-        self.chatCollView.reloadData()
+        socketRoomConnection?.socket.write(string: MessageObject(contentType: .string, recipient: "test", sender: "test", hour: "10h", content: chatText).toString())
         
         let lastItem = self.messageArray.count - 1
         let indexPath = IndexPath(item: lastItem, section: 0)

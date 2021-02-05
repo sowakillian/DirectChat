@@ -16,10 +16,6 @@ class RoomListSocket:SocketCommunicationTool {
         super.init(connectionType: connectionType)
     }
     
-    func listen(callBack: @escaping (([String])->())) {
-        self.roomListDidChangeClosure = callBack
-    }
-    
     override func didReceive(event: WebSocketEvent, client: WebSocket) {
         
         switch event {
@@ -52,5 +48,9 @@ class RoomListSocket:SocketCommunicationTool {
             handleError(error)
         }
         
+    }
+    
+    func listen(callBack: @escaping (([String])->())) {
+        self.roomListDidChangeClosure = callBack
     }
 }
