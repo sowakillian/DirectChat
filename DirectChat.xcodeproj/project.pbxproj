@@ -34,6 +34,7 @@
 		7BCD728625CD1A6A008E9E99 /* RoomListSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCD728525CD1A6A008E9E99 /* RoomListSocket.swift */; };
 		7BCD728B25CD1A79008E9E99 /* RoomCreationSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCD728A25CD1A79008E9E99 /* RoomCreationSocket.swift */; };
 		7BCD729025CD1A88008E9E99 /* RoomConnectionSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCD728F25CD1A88008E9E99 /* RoomConnectionSocket.swift */; };
+		7BCD72F825CD7B38008E9E99 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCD72F725CD7B38008E9E99 /* UIViewControllerExtension.swift */; };
 		D367F0041C1DDEF84F0E8ABB /* Pods_DirectChat_DirectChatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A2D04129B818A6F2770C3F1 /* Pods_DirectChat_DirectChatUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +91,7 @@
 		7BCD728525CD1A6A008E9E99 /* RoomListSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomListSocket.swift; sourceTree = "<group>"; };
 		7BCD728A25CD1A79008E9E99 /* RoomCreationSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomCreationSocket.swift; sourceTree = "<group>"; };
 		7BCD728F25CD1A88008E9E99 /* RoomConnectionSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomConnectionSocket.swift; sourceTree = "<group>"; };
+		7BCD72F725CD7B38008E9E99 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		BBB34C764F8A184AE34D26C2 /* Pods-DirectChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DirectChatTests.debug.xcconfig"; path = "Target Support Files/Pods-DirectChatTests/Pods-DirectChatTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BC11C2DC7A667FB1524BA483 /* Pods-DirectChatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DirectChatTests.release.xcconfig"; path = "Target Support Files/Pods-DirectChatTests/Pods-DirectChatTests.release.xcconfig"; sourceTree = "<group>"; };
 		EF08621CC5AA8420E94362B3 /* Pods_DirectChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DirectChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -211,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				7B36CCD725CAB20B00019DF3 /* UIViewExtension.swift */,
+				7BCD72F725CD7B38008E9E99 /* UIViewControllerExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -550,6 +553,7 @@
 				7BCD728125CD18CA008E9E99 /* SocketCommunicationTool.swift in Sources */,
 				7B77F05025CC2A6D0073BD9A /* MessageType.swift in Sources */,
 				7B36CCD825CAB20B00019DF3 /* UIViewExtension.swift in Sources */,
+				7BCD72F825CD7B38008E9E99 /* UIViewControllerExtension.swift in Sources */,
 				7B36CCE025CAB25700019DF3 /* Message.swift in Sources */,
 				7BCD724625CC80DF008E9E99 /* HomeViewController.swift in Sources */,
 				7B36CCA525CAB1D600019DF3 /* SceneDelegate.swift in Sources */,

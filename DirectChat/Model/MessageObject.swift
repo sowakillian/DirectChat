@@ -23,7 +23,7 @@ class MessageObject {
     var hour: String
     var content: String
     
-    init(contentType: MessageType, recipient: String, sender: String, hour: String, content: String) {
+    init(contentType: MessageType, sender: String, recipient: String, hour: String, content: String) {
         self.contentType = contentType
         self.sender = sender
         self.recipient = recipient
@@ -38,6 +38,6 @@ class MessageObject {
     static func fromString(message: String) -> MessageObject {
         let messageSplitted = message.components(separatedBy: "|")
         
-        return MessageObject(contentType: MessageType(rawValue: messageSplitted[0]) ?? .error, recipient: messageSplitted[1], sender: messageSplitted[2], hour: messageSplitted[3], content: messageSplitted[4])
+        return MessageObject(contentType: MessageType(rawValue: messageSplitted[0]) ?? .error, sender: messageSplitted[1], recipient: messageSplitted[2], hour: messageSplitted[3], content: messageSplitted[4])
     }
 }

@@ -26,6 +26,15 @@ class RoomConnectionSocket:SocketCommunicationTool {
         socket.connect()
     }
     
+    func startTimer() {
+        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
+    }
+    
+    @objc func fireTimer() {
+        print("Timer fired!")
+        socket.write(string: "Update|\(roomId)")
+    }
+    
     override func didReceive(event: WebSocketEvent, client: WebSocket) {
         
         switch event {
@@ -33,6 +42,7 @@ class RoomConnectionSocket:SocketCommunicationTool {
             isConnected = true
             
             socket.write(string: "Connection|\(roomId)")
+            startTimer()
             print("websocket of type \(connectionType) is connected: \(headers)")
         case .disconnected(let reason, let code):
             isConnected = false

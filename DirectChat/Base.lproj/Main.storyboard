@@ -109,7 +109,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="37" translatesAutoresizingMaskIntoConstraints="NO" id="z5y-Ze-bl7">
-                                <rect key="frame" x="93" y="339.5" width="228" height="271"/>
+                                <rect key="frame" x="93" y="314.5" width="228" height="321"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="001-chat" translatesAutoresizingMaskIntoConstraints="NO" id="y8i-yO-m7f">
                                         <rect key="frame" x="74" y="0.0" width="80" height="80"/>
@@ -142,21 +142,35 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5im-Lj-tJN">
-                                        <rect key="frame" x="0.0" y="223" width="228" height="48"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="48" id="3D5-fD-Nse"/>
-                                            <constraint firstAttribute="width" constant="228" id="W67-RN-kpM"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                                        <state key="normal" title="Rejoindre une room">
-                                            <color key="titleColor" red="0.019607843140000001" green="0.33725490200000002" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="7qx-Sa-IPL" kind="show" id="XM6-v1-Kiz"/>
-                                        </connections>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="bP2-De-lCK">
+                                        <rect key="frame" x="0.0" y="223" width="228" height="98"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Entre ton pseudo ici" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nmN-ce-ZAp">
+                                                <rect key="frame" x="0.0" y="0.0" width="228" height="34"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="228" id="6ij-bD-YTw"/>
+                                                    <constraint firstAttribute="height" constant="34" id="zkg-GY-tHv"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5im-Lj-tJN">
+                                                <rect key="frame" x="0.0" y="50" width="228" height="48"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="48" id="3D5-fD-Nse"/>
+                                                    <constraint firstAttribute="width" constant="228" id="W67-RN-kpM"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                                <state key="normal" title="Rejoindre une room">
+                                                    <color key="titleColor" red="0.019607843140000001" green="0.33725490200000002" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="joinRoomListButtonClicked:" destination="P1n-J1-37k" eventType="touchUpInside" id="qzi-3S-2nW"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -170,6 +184,8 @@
                     <navigationItem key="navigationItem" id="3HN-Pd-NzA"/>
                     <connections>
                         <outlet property="joinRoomButton" destination="5im-Lj-tJN" id="Jkl-x1-gcb"/>
+                        <outlet property="pseudoTextField" destination="nmN-ce-ZAp" id="7sh-rb-Rgz"/>
+                        <segue destination="7qx-Sa-IPL" kind="show" identifier="toRoomList" id="990-Kp-FNy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gVL-GZ-1kR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

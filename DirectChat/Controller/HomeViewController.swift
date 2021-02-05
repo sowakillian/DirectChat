@@ -10,14 +10,25 @@ import UIKit
 
 class HomeViewController: UIViewController {
     @IBOutlet weak var joinRoomButton: UIButton!
+    @IBOutlet weak var pseudoTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationController?.navigationBar.isHidden = true
         //hideLoadingView()
+        self.hideKeyboardWhenTappedAround()
         
         joinRoomButton.layer.cornerRadius = 25
+    }
+    
+    @IBAction func joinRoomListButtonClicked(_ sender: Any) {
+        if let pseudo = pseudoTextField.text {
+            let defaults = UserDefaults.standard
+            defaults.set(pseudo, forKey: "pseudo")
+            self.performSegue(withIdentifier: "toRoomList", sender: nil)
+        }
+
     }
     
     func hideLoadingView() {

@@ -15,6 +15,7 @@ class ConversationViewController: UIViewController {
     @IBOutlet var inputViewContainerBottomConstraint: NSLayoutConstraint!
     @IBOutlet var chatTF: UITextField!
     var socketRoomConnection:RoomConnectionSocket? = nil
+    var pseudo = UserDefaults.standard.string(forKey: "pseudo")
     
     private(set) var messageArray: [Message] = []
     
@@ -29,6 +30,8 @@ class ConversationViewController: UIViewController {
         print("socketRoomConnection", socketRoomConnection)
         socketRoomConnection?.connect()
         
+        print(" i enter in view")
+        
         socketRoomConnection?.listen { messageList in
             self.messageArray = []
             print(messageList)
@@ -39,8 +42,13 @@ class ConversationViewController: UIViewController {
                 print("no messages")
             } else {
                 messageListSplitted.forEach { (message) in
+                    
                     let messageObject = MessageObject.fromString(message: message)
-                    let messageConverted = Message(userName: "toto", userImageUrl: "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2552&q=80", sentByMe: false, text: messageObject.content)
+                    let sender = messageObject.sender
+                    let sentByMe = sender == self.pseudo ? true : false
+                    
+                    print("sender", messageObject.sender)
+                    let messageConverted = Message(userName: messageObject.sender, userImageUrl: "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2552&q=80", sentByMe: sentByMe, text: messageObject.content)
                     self.messageArray.append(messageConverted)
                 }
                 self.chatCollView.reloadData()
@@ -120,7 +128,7 @@ class ConversationViewController: UIViewController {
         guard let chatText = chatTF.text, chatText.count >= 1 else { return }
         chatTF.text = ""
         
-        socketRoomConnection?.socket.write(string: MessageObject(contentType: .string, recipient: "test", sender: "test", hour: "10h", content: chatText).toString())
+        socketRoomConnection?.socket.write(string: MessageObject(contentType: .string, sender: self.pseudo ?? "anonymous", recipient: "test", hour: "10h", content: chatText).toString())
         
         let lastItem = self.messageArray.count - 1
         let indexPath = IndexPath(item: lastItem, section: 0)
