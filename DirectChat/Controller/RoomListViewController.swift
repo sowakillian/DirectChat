@@ -30,6 +30,11 @@ class RoomListViewController: UIViewController {
         
         createRoomButton.layer.cornerRadius = 15
         refreshRoomListButton.layer.cornerRadius = 15
+        
+        socketRoomList.listen { roomList in
+            self.roomList = roomList
+            self.roomListTableView.reloadData()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,17 +53,9 @@ class RoomListViewController: UIViewController {
     
     @IBAction func refreshRoomListClicked(_ sender: Any) {
         socketRoomList.connect()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-            self.roomList = self.socketRoomList.roomList
-            self.roomListTableView.reloadData()
-            print(self.roomList)
-        }
-
     }
     
     @IBAction func createRoomClicked(_ sender: Any) {
-        print("Create room has been clicked")
         socketCreation.connect()
     }
 }
@@ -66,7 +63,6 @@ class RoomListViewController: UIViewController {
 extension RoomListViewController:UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedRoomId = roomList[indexPath.row]
-        print(selectedRoomId)
         self.performSegue(withIdentifier: "toConversation", sender: nil)
     }
 }

@@ -9,10 +9,15 @@ import Foundation
 import Starscream
 
 class RoomListSocket:SocketCommunicationTool {
+    var roomListDidChangeClosure: (([String])->())?
     var roomList: [String] = []
     
     override init(connectionType: ConnectionType = .roomList) {
         super.init(connectionType: connectionType)
+    }
+    
+    func listen(callBack: @escaping (([String])->())) {
+        self.roomListDidChangeClosure = callBack
     }
     
     override func didReceive(event: WebSocketEvent, client: WebSocket) {
@@ -29,6 +34,7 @@ class RoomListSocket:SocketCommunicationTool {
         case .text(let string):
             print("Received text: \(string)")
             self.roomList = string.components(separatedBy: "|")
+            self.roomListDidChangeClosure!(string.components(separatedBy: "|"))
         case .binary(let data):
             print("Received data: \(data.count)")
         case .ping(_):
