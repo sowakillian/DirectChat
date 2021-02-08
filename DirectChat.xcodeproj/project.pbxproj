@@ -25,6 +25,11 @@
 		7B36CD1A25CAB5B300019DF3 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B36CD1925CAB5B300019DF3 /* Spinner.swift */; };
 		7B77F04A25CC29950073BD9A /* MessageObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B77F04925CC29950073BD9A /* MessageObject.swift */; };
 		7B77F05025CC2A6D0073BD9A /* MessageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B77F04F25CC2A6D0073BD9A /* MessageType.swift */; };
+		7BCAF96425D146C100AE4080 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCAF96325D146C100AE4080 /* SignUpViewController.swift */; };
+		7BCAF96C25D146CD00AE4080 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCAF96B25D146CD00AE4080 /* SignInViewController.swift */; };
+		7BCAF97425D1479500AE4080 /* BasicButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCAF97325D1479500AE4080 /* BasicButton.swift */; };
+		7BCAF97C25D1479F00AE4080 /* BasicInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCAF97B25D1479F00AE4080 /* BasicInput.swift */; };
+		7BCAF98B25D1496A00AE4080 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCAF98A25D1496A00AE4080 /* UIColorExtension.swift */; };
 		7BCD724625CC80DF008E9E99 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCD724525CC80DF008E9E99 /* HomeViewController.swift */; };
 		7BCD725725CC81C9008E9E99 /* RoomListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCD725625CC81C9008E9E99 /* RoomListViewController.swift */; };
 		7BCD726825CC95BA008E9E99 /* RoomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCD726725CC95BA008E9E99 /* RoomTableViewCell.swift */; };
@@ -82,6 +87,11 @@
 		7B36CD1925CAB5B300019DF3 /* Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
 		7B77F04925CC29950073BD9A /* MessageObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageObject.swift; sourceTree = "<group>"; };
 		7B77F04F25CC2A6D0073BD9A /* MessageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageType.swift; sourceTree = "<group>"; };
+		7BCAF96325D146C100AE4080 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		7BCAF96B25D146CD00AE4080 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		7BCAF97325D1479500AE4080 /* BasicButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicButton.swift; sourceTree = "<group>"; };
+		7BCAF97B25D1479F00AE4080 /* BasicInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicInput.swift; sourceTree = "<group>"; };
+		7BCAF98A25D1496A00AE4080 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		7BCD724525CC80DF008E9E99 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7BCD725625CC81C9008E9E99 /* RoomListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomListViewController.swift; sourceTree = "<group>"; };
 		7BCD726725CC95BA008E9E99 /* RoomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomTableViewCell.swift; sourceTree = "<group>"; };
@@ -214,6 +224,7 @@
 			children = (
 				7B36CCD725CAB20B00019DF3 /* UIViewExtension.swift */,
 				7BCD72F725CD7B38008E9E99 /* UIViewControllerExtension.swift */,
+				7BCAF98A25D1496A00AE4080 /* UIColorExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -240,9 +251,11 @@
 		7B77EFAB25CBE6530073BD9A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				7B36CCA625CAB1D600019DF3 /* ConversationViewController.swift */,
-				7BCD724525CC80DF008E9E99 /* HomeViewController.swift */,
-				7BCD725625CC81C9008E9E99 /* RoomListViewController.swift */,
+				7BCAF98625D1484B00AE4080 /* Home */,
+				7BCAF98525D1482E00AE4080 /* Conversation */,
+				7BCAF98425D1482600AE4080 /* RoomList */,
+				7BCAF98125D147FC00AE4080 /* SignIn */,
+				7BCAF98325D1480F00AE4080 /* SignUp */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -256,9 +269,75 @@
 			path = Enum;
 			sourceTree = "<group>";
 		};
+		7BCAF97025D1476400AE4080 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				7BCAF97225D1477E00AE4080 /* Input */,
+				7BCAF97125D1476F00AE4080 /* Button */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		7BCAF97125D1476F00AE4080 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				7BCAF97325D1479500AE4080 /* BasicButton.swift */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
+		7BCAF97225D1477E00AE4080 /* Input */ = {
+			isa = PBXGroup;
+			children = (
+				7BCAF97B25D1479F00AE4080 /* BasicInput.swift */,
+			);
+			path = Input;
+			sourceTree = "<group>";
+		};
+		7BCAF98125D147FC00AE4080 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				7BCAF96B25D146CD00AE4080 /* SignInViewController.swift */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		7BCAF98325D1480F00AE4080 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				7BCAF96325D146C100AE4080 /* SignUpViewController.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		7BCAF98425D1482600AE4080 /* RoomList */ = {
+			isa = PBXGroup;
+			children = (
+				7BCD725625CC81C9008E9E99 /* RoomListViewController.swift */,
+			);
+			path = RoomList;
+			sourceTree = "<group>";
+		};
+		7BCAF98525D1482E00AE4080 /* Conversation */ = {
+			isa = PBXGroup;
+			children = (
+				7B36CCA625CAB1D600019DF3 /* ConversationViewController.swift */,
+			);
+			path = Conversation;
+			sourceTree = "<group>";
+		};
+		7BCAF98625D1484B00AE4080 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				7BCD724525CC80DF008E9E99 /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		7BCD724125CC8090008E9E99 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7BCAF97025D1476400AE4080 /* Components */,
 				7B36CCAB25CAB1D800019DF3 /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -541,6 +620,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BCAF96C25D146CD00AE4080 /* SignInViewController.swift in Sources */,
 				7BCD727625CC9CC0008E9E99 /* ConnectionType.swift in Sources */,
 				7BCD728625CD1A6A008E9E99 /* RoomListSocket.swift in Sources */,
 				7B77F04A25CC29950073BD9A /* MessageObject.swift in Sources */,
@@ -553,9 +633,13 @@
 				7BCD728125CD18CA008E9E99 /* SocketCommunicationTool.swift in Sources */,
 				7B77F05025CC2A6D0073BD9A /* MessageType.swift in Sources */,
 				7B36CCD825CAB20B00019DF3 /* UIViewExtension.swift in Sources */,
+				7BCAF97C25D1479F00AE4080 /* BasicInput.swift in Sources */,
 				7BCD72F825CD7B38008E9E99 /* UIViewControllerExtension.swift in Sources */,
 				7B36CCE025CAB25700019DF3 /* Message.swift in Sources */,
 				7BCD724625CC80DF008E9E99 /* HomeViewController.swift in Sources */,
+				7BCAF98B25D1496A00AE4080 /* UIColorExtension.swift in Sources */,
+				7BCAF97425D1479500AE4080 /* BasicButton.swift in Sources */,
+				7BCAF96425D146C100AE4080 /* SignUpViewController.swift in Sources */,
 				7B36CCA525CAB1D600019DF3 /* SceneDelegate.swift in Sources */,
 				7BCD728B25CD1A79008E9E99 /* RoomCreationSocket.swift in Sources */,
 				7B36CCF425CAB34500019DF3 /* BaseCollectionViewCell.swift in Sources */,

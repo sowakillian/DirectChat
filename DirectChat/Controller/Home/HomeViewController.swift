@@ -9,8 +9,8 @@ import Foundation
 import UIKit
 
 class HomeViewController: UIViewController {
-    @IBOutlet weak var joinRoomButton: UIButton!
-    @IBOutlet weak var pseudoTextField: UITextField!
+    @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var signInButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,17 +19,10 @@ class HomeViewController: UIViewController {
         //hideLoadingView()
         self.hideKeyboardWhenTappedAround()
         
-        joinRoomButton.layer.cornerRadius = 25
+        signUpButton.layer.cornerRadius = 25
+        signInButton.layer.cornerRadius = 25
     }
     
-    @IBAction func joinRoomListButtonClicked(_ sender: Any) {
-        if let pseudo = pseudoTextField.text {
-            let defaults = UserDefaults.standard
-            defaults.set(pseudo, forKey: "pseudo")
-            self.performSegue(withIdentifier: "toRoomList", sender: nil)
-        }
-
-    }
     
     func hideLoadingView() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {

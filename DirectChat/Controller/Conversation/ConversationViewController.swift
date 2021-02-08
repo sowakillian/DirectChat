@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CryptoSwift
 
 class ConversationViewController: UIViewController {
     
@@ -47,7 +48,6 @@ class ConversationViewController: UIViewController {
                     let sender = messageObject.sender
                     let sentByMe = sender == self.pseudo ? true : false
                     
-                    print("sender", messageObject.sender)
                     let messageConverted = Message(userName: messageObject.sender, userImageUrl: "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2552&q=80", sentByMe: sentByMe, text: messageObject.content)
                     self.messageArray.append(messageConverted)
                 }
@@ -130,11 +130,42 @@ class ConversationViewController: UIViewController {
         
         socketRoomConnection?.socket.write(string: MessageObject(contentType: .string, sender: self.pseudo ?? "anonymous", recipient: "test", hour: "10h", content: chatText).toString())
         
+//        let password: [UInt8] = Array("s33krit".utf8)
+//        let salt: [UInt8] = Array("nacllcan".utf8)
+//
+//        do {
+//            let key = try PKCS5.PBKDF2(
+//                password: password,
+//                salt: salt,
+//                iterations: 4096,
+//                keyLength: 32, /* AES-256 */
+//                variant: .sha256
+//            ).calculate()
+//
+//            /* Generate random IV value. IV is public value. Either need to generate, or get it from elsewhere */
+//            let iv = AES.randomIV(AES.blockSize)
+//
+//            /* AES cryptor instance */
+//            let aes = try AES(key: key, blockMode: CBC(iv: iv), padding: .pkcs7)
+//
+//            /* Encrypt Data */
+//            let inputData = MessageObject(contentType: .string, sender: self.pseudo ?? "anonymous", recipient: "test", hour: "10h", content: chatText).toData()
+//            let encryptedBytes = try aes.encrypt(inputData.bytes)
+//            let encryptedData = Data(encryptedBytes)
+//
+//            socketRoomConnection?.socket.write(data: encryptedData)
+//        } catch {
+//            //handle error
+//            print(error)
+//        }
+
+        
         let lastItem = self.messageArray.count - 1
         let indexPath = IndexPath(item: lastItem, section: 0)
         //        self.chatCollView.insertItems(at: [indexPath])
         self.chatCollView.scrollToItem(at: indexPath, at: .bottom, animated: true)
     }
+    
 }
 
 extension ConversationViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {

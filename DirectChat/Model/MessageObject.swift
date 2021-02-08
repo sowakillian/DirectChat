@@ -35,6 +35,10 @@ class MessageObject {
         "#\(contentType.rawValue)|\(sender)|\(recipient)|\(hour)|\(content)"
     }
     
+    func toData() -> Data {
+        "#\(contentType.rawValue)|\(sender)|\(recipient)|\(hour)|\(content)".data(using: .utf8)!
+    }
+    
     static func fromString(message: String) -> MessageObject {
         let messageSplitted = message.components(separatedBy: "|")
         
