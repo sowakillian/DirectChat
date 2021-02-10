@@ -12,6 +12,8 @@ extension UIColor {
     struct MainTheme {
         //UIColor
         static var mainBlue: UIColor  { return UIColor(red: 5/255, green: 86/255, blue: 181/255, alpha: 1.0) }
+        static var mainPurple: UIColor  { return UIColor(red: 92/255, green: 95/255, blue: 191/255, alpha: 1.0) }
+        static var mainGrey: UIColor  { return UIColor(red: 170/255, green: 170/255, blue: 170/255, alpha: 1.0) }
         static var placeholderGrey: UIColor  { return UIColor(red: 193/255, green: 198/255, blue: 234/255, alpha: 1.0) }
         static var darkBlue: UIColor  { return UIColor(red: 0/255, green: 65/255, blue: 142/255, alpha: 1.0) }
         static var black: UIColor  { return UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1) }

@@ -6,15 +6,14 @@ target 'DirectChat' do
   use_frameworks!
 
   # Pods for DirectChat
- pod 'Starscream', '~> 4.0.0'
- pod 'CryptoSwift', '~> 1.3.8'
- pod 'Firebase/Analytics'
- pod 'Firebase/Auth'
- pod 'Firebase/Firestore'
- pod 'Firebase/Storage'
- pod 'SDWebImage', '~> 5.0'
- pod 'NotificationBannerSwift', '~> 3.0.0'
-  
+  pod 'Starscream', '~> 4.0.0'
+  pod 'CryptoSwift', '~> 1.3.8'
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Firestore'
+  pod 'SDWebImage', '~> 5.0'
+  pod 'NotificationBannerSwift', '~> 3.0.0'
+  pod 'YPImagePicker'
 
   target 'DirectChatTests' do
     inherit! :search_paths

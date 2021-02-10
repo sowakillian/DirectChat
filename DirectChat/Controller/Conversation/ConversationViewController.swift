@@ -7,8 +7,9 @@
 
 import UIKit
 import CryptoSwift
+import AVKit
 
-class ConversationViewController: UIViewController {
+class ConversationViewController: UIViewController, AVAudioRecorderDelegate {
     
     @IBOutlet var contentView: UIView!
     var isConnected = false
@@ -17,16 +18,43 @@ class ConversationViewController: UIViewController {
     @IBOutlet var chatTF: UITextField!
     var socketRoomConnection:RoomConnectionSocket? = nil
     var pseudo = UserDefaults.standard.string(forKey: "pseudo")
+    var recordingSession: AVAudioSession!
+    var audioRecorder: AVAudioRecorder!
+    var vocalTimer: Timer!
+    
     
     private(set) var messageArray: [Message] = []
+    @IBOutlet weak var recordButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.recordButton.isEnabled = false
+        self.recordButton.alpha = 0.5
         self.navigationController?.navigationBar.isHidden = false
         self.navigationItem.title = "Messages"
         self.assignDelegates()
         self.manageInputEventsForTheSubViews()
+        
+        recordingSession = AVAudioSession.sharedInstance()
+
+        do {
+            try recordingSession.setCategory(.playAndRecord, mode: .default)
+            try recordingSession.setActive(true)
+            recordingSession.requestRecordPermission() { [unowned self] allowed in
+                DispatchQueue.main.async {
+                    if allowed {
+                        self.recordButton.isEnabled = true
+                        self.recordButton.alpha = 1
+                    } else {
+                        // failed to record!
+                    }
+                }
+            }
+        } catch {
+            // failed to record!
+        }
+        
         
         print("socketRoomConnection", socketRoomConnection)
         socketRoomConnection?.connect()
@@ -35,10 +63,9 @@ class ConversationViewController: UIViewController {
         
         socketRoomConnection?.listen { messageList in
             self.messageArray = []
-            print(messageList)
             let messageListSplitted = messageList.components(separatedBy: "$$")
             
-            print("messageListSplitted", messageListSplitted)
+            //print("messageListSplitted", messageListSplitted)
             if  messageListSplitted[0] == "" {
                 print("no messages")
             } else {
@@ -52,6 +79,8 @@ class ConversationViewController: UIViewController {
                     self.messageArray.append(messageConverted)
                 }
                 self.chatCollView.reloadData()
+                
+                self.scrollToLastMessage()
             }
             
             
@@ -63,6 +92,68 @@ class ConversationViewController: UIViewController {
         
         self.fetchChatData()
     }
+    
+    @IBAction func microClicked(_ sender: Any) {
+        if audioRecorder == nil {
+            startRecording()
+        } else {
+            finishRecording(success: true)
+        }
+    }
+    
+    func startRecording() {
+        let audioFilename = getDocumentsDirectory().appendingPathComponent("recording.m4a")
+
+        let settings = [
+            AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
+            AVSampleRateKey: 12000,
+            AVNumberOfChannelsKey: 1,
+            AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
+        ]
+
+        do {
+            audioRecorder = try AVAudioRecorder(url: audioFilename, settings: settings)
+            audioRecorder.delegate = self
+            audioRecorder.record()
+
+            chatTF.isEnabled = false
+            
+            chatTF.placeholder = "00:00"
+            vocalTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateVocalTime), userInfo: nil, repeats: true)
+            
+            recordButton.tintColor = .red
+        } catch {
+            chatTF.placeholder = "Tape ton message"
+            finishRecording(success: false)
+            vocalTimer.invalidate()
+        }
+    }
+    
+    @objc func updateVocalTime() {
+        //print("Timer fired!")
+        print(audioRecorder.currentTime)
+        if audioRecorder.currentTime < 10 {
+            chatTF.placeholder = "00:0\(String(String(audioRecorder.currentTime).prefix(1)))"
+        } else {
+            chatTF.placeholder = "00:\(String(String(audioRecorder.currentTime).prefix(2)))"
+        }
+        
+    }
+    
+    func finishRecording(success: Bool) {
+        audioRecorder.stop()
+        audioRecorder = nil
+        vocalTimer.invalidate()
+        chatTF.placeholder = "Tape ton message"
+
+        if success {
+            recordButton.tintColor = UIColor.MainTheme.mainGrey
+        } else {
+            recordButton.tintColor = UIColor.MainTheme.mainGrey
+            // recording failed :(
+        }
+    }
+    
     
     private func fetchChatData() {
         
@@ -106,12 +197,19 @@ class ConversationViewController: UIViewController {
             }, completion: { (completed) in
                 
                 if isKeyboardShowing {
-                    let lastItem = self.messageArray.count - 1
-                    let indexPath = IndexPath(item: lastItem, section: 0)
-                    self.chatCollView.scrollToItem(at: indexPath, at: .bottom, animated: true)
+                    self.scrollToLastMessage()
                 }
             })
         }
+    }
+    
+    private func scrollToLastMessage() {
+        let lastItem = self.messageArray.count-1
+        
+        print(self.messageArray, self.messageArray.count)
+        let indexPath = IndexPath(item: lastItem, section: 0)
+        print(indexPath)
+        self.chatCollView.scrollToItem(at: indexPath, at: .bottom, animated: true)
     }
     
     private func assignDelegates() {
@@ -121,6 +219,12 @@ class ConversationViewController: UIViewController {
         self.chatCollView.delegate = self
         
         self.chatTF.delegate = self
+    }
+    
+    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
+        if !flag {
+            finishRecording(success: false)
+        }
     }
     
     @IBAction func onSendChat(_ sender: UIButton?) {
@@ -204,23 +308,25 @@ extension ConversationViewController: UICollectionViewDataSource, UICollectionVi
             if chat.sentByMe {
                 
                 cell.nameLabel.textAlignment = .left
+                cell.nameLabel.textColor = UIColor.MainTheme.white
                 cell.profileImageView.frame = CGRect(x: 8, y: estimatedFrame.height - 8, width: 30, height: 30)
                 cell.nameLabel.frame = CGRect(x: 48 + 8, y: 0, width: estimatedFrame.width + 16, height: 18)
                 cell.messageTextView.frame = CGRect(x: 48 + 8, y: 12, width: estimatedFrame.width + 16, height: estimatedFrame.height + 20)
                 cell.textBubbleView.frame = CGRect(x: 48 - 10, y: -4, width: estimatedFrame.width + 16 + 8 + 16 + 12, height: estimatedFrame.height + 20 + 6)
                 cell.bubbleImageView.image = MessageCell.grayBubbleImage
-                cell.bubbleImageView.tintColor = UIColor(white: 0.95, alpha: 1)
-                cell.messageTextView.textColor = UIColor.black
+                cell.bubbleImageView.tintColor = UIColor.MainTheme.mainPurple
+                cell.messageTextView.textColor = UIColor.white
             } else {
                 
                 cell.nameLabel.textAlignment = .right
+                cell.nameLabel.textColor = UIColor.MainTheme.mainPurple
                 cell.profileImageView.frame = CGRect(x: self.chatCollView.bounds.width - 38, y: estimatedFrame.height - 8, width: 30, height: 30)
                 cell.nameLabel.frame = CGRect(x: collectionView.bounds.width - estimatedFrame.width - 16 - 16 - 8 - 30 - 12, y: 0, width: estimatedFrame.width + 16, height: 18)
                 cell.messageTextView.frame = CGRect(x: collectionView.bounds.width - estimatedFrame.width - 16 - 16 - 8 - 30, y: 12, width: estimatedFrame.width + 16, height: estimatedFrame.height + 20)
                 cell.textBubbleView.frame = CGRect(x: collectionView.frame.width - estimatedFrame.width - 16 - 8 - 16 - 10 - 30, y: -4, width: estimatedFrame.width + 16 + 8 + 10, height: estimatedFrame.height + 20 + 6)
                 cell.bubbleImageView.image = MessageCell.blueBubbleImage
-                cell.bubbleImageView.tintColor = UIColor(red: 0, green: 137/255, blue: 249/255, alpha: 1)
-                cell.messageTextView.textColor = UIColor.white
+                cell.bubbleImageView.tintColor = UIColor.MainTheme.white
+                cell.messageTextView.textColor = UIColor.black
             }
             
             return cell
@@ -238,7 +344,7 @@ extension ConversationViewController: UICollectionViewDataSource, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 5, left: 0, bottom: 5, right: 0)
+        return UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

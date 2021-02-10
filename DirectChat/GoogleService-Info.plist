@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>33425883801-41kb2rr95if2ftva90udd6emtdletcer.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.33425883801-41kb2rr95if2ftva90udd6emtdletcer</string>
+	<key>API_KEY</key>
+	<string>AIzaSyD_wdTn86TKpxLosuuI0AHhiKW94X6LOxY</string>
+	<key>GCM_SENDER_ID</key>
+	<string>33425883801</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.bddi.DirectChat</string>
+	<key>PROJECT_ID</key>
+	<string>directchat-7650f</string>
+	<key>STORAGE_BUCKET</key>
+	<string>directchat-7650f.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:33425883801:ios:0906f507e2ca7a39f0ee08</string>
+</dict>
+</plist>
