@@ -9,7 +9,7 @@ import Foundation
 import Starscream
 
 class RoomConnectionSocket:SocketCommunicationTool {
-    var newMessageClosure: ((String)->())?
+    var newMessageClosure: ((Data)->())?
     var roomId: String
     
     init(roomId: String, connectionType: ConnectionType = .roomConnection) {
@@ -19,7 +19,7 @@ class RoomConnectionSocket:SocketCommunicationTool {
     
     override func connect() {
         print(self.roomId)
-        var request = URLRequest(url: URL(string: "http://172.20.10.2:9071/\(roomId)")!)
+        var request = URLRequest(url: URL(string: "http://192.168.0.6:9074/\(roomId)")!)
         request.timeoutInterval = 5
         socket = WebSocket(request: request)
         socket.delegate = self
@@ -48,9 +48,9 @@ class RoomConnectionSocket:SocketCommunicationTool {
             isConnected = false
             print("websocket of type \(connectionType) is disconnected: \(reason) with code: \(code)")
         case .text(let string):
-            //print("Received text: \(string)")
-            self.newMessageClosure!(string)
+            print("Received text: \(string)")
         case .binary(let data):
+            self.newMessageClosure!(data)
             print("Received data: \(data.count)")
         case .ping(_):
             break
@@ -69,7 +69,7 @@ class RoomConnectionSocket:SocketCommunicationTool {
         
     }
     
-    func listen(callBack: @escaping ((String)->())) {
+    func listen(callBack: @escaping ((Data)->())) {
         self.newMessageClosure = callBack
     }
 }

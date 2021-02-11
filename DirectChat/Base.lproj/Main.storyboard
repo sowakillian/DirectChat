@@ -44,6 +44,9 @@
                                                         </constraints>
                                                         <color key="tintColor" red="0.36078431370000003" green="0.37254901959999998" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         <state key="normal" image="icon-camera"/>
+                                                        <connections>
+                                                            <action selector="photoClicked:" destination="ps3-9g-nmd" eventType="touchUpInside" id="t3x-DB-soL"/>
+                                                        </connections>
                                                     </button>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Tape ton message" textAlignment="natural" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="xSA-bT-dfz" customClass="MessageInput" customModule="DirectChat" customModuleProvider="target">
                                                         <rect key="frame" x="33" y="0.0" width="304" height="46"/>
@@ -124,6 +127,7 @@
                         <outlet property="chatTF" destination="xSA-bT-dfz" id="iPb-xP-hjW"/>
                         <outlet property="contentView" destination="8Ry-QZ-YKe" id="dgw-Py-NLk"/>
                         <outlet property="inputViewContainerBottomConstraint" destination="z8A-4X-Nbd" id="yre-fQ-yAK"/>
+                        <outlet property="photoButton" destination="TzA-Hp-MDe" id="3mk-OQ-fXB"/>
                         <outlet property="recordButton" destination="IUF-xW-hYR" id="JHj-MT-aeE"/>
                     </connections>
                 </viewController>
@@ -276,7 +280,7 @@
         <!--Home View Controller-->
         <scene sceneID="T8E-69-Y4I">
             <objects>
-                <viewController id="P1n-J1-37k" customClass="HomeViewController" customModule="DirectChat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="P1n-J1-37k" customClass="HomeViewController" customModule="DirectChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4nQ-Cv-lK5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -392,7 +396,7 @@
         <!--Room List View Controller-->
         <scene sceneID="HiI-ly-hRt">
             <objects>
-                <viewController id="7qx-Sa-IPL" customClass="RoomListViewController" customModule="DirectChat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RoomListViewController" id="7qx-Sa-IPL" customClass="RoomListViewController" customModule="DirectChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c3H-bX-Vfa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -683,7 +687,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="9xQ-76-4eA"/>
+        <segue reference="990-Kp-FNy"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="001-chat" width="76" height="76"/>

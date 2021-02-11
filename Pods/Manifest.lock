@@ -279,11 +279,16 @@ PODS:
     - MarqueeLabel (~> 4.0.0)
     - SnapKit (~> 5.0.0)
   - PromisesObjC (1.2.8)
+  - PryntTrimmerView (4.0.2)
   - SDWebImage (5.6.1):
     - SDWebImage/Core (= 5.6.1)
   - SDWebImage/Core (5.6.1)
   - SnapKit (5.0.1)
   - Starscream (4.0.4)
+  - SteviaLayout (4.7.3)
+  - YPImagePicker (4.4.0):
+    - PryntTrimmerView (~> 4.0.2)
+    - SteviaLayout (~> 4.7.3)
 
 DEPENDENCIES:
   - CryptoSwift (~> 1.3.8)
@@ -293,6 +298,7 @@ DEPENDENCIES:
   - NotificationBannerSwift (~> 3.0.0)
   - SDWebImage (~> 5.0)
   - Starscream (~> 4.0.0)
+  - YPImagePicker
 
 SPEC REPOS:
   trunk:
@@ -320,9 +326,12 @@ SPEC REPOS:
     - nanopb
     - NotificationBannerSwift
     - PromisesObjC
+    - PryntTrimmerView
     - SDWebImage
     - SnapKit
     - Starscream
+    - SteviaLayout
+    - YPImagePicker
 
 SPEC CHECKSUMS:
   abseil: 18063d773f5366ff8736a050fe035a28f635fd27
@@ -349,10 +358,13 @@ SPEC CHECKSUMS:
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   NotificationBannerSwift: 713e20f21b6105f4a36a00e5d9fa414a930d3d8e
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
+  PryntTrimmerView: 6a43cc90df5d99addeabd33d4ba09b1365322130
   SDWebImage: 7edb9c3ea661e77a66661f7f044de8c1b55d1120
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   Starscream: 5178aed56b316f13fa3bc55694e583d35dd414d9
+  SteviaLayout: c2ecdcff57d44e38fd2f65e54ad52aeae28ca0c4
+  YPImagePicker: 15aed8bcaa4dad976e11b6114126d731a2f9f3c9
 
-PODFILE CHECKSUM: 6a3b1b9b5f45e2ab66fe75526015f29d6768ebfa
+PODFILE CHECKSUM: e317a998b7c0b918495644b9d3ffdaa4a72e6b51
 
 COCOAPODS: 1.10.1

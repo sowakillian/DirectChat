@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>DirectChat needs to access to photo gallery</string>
+	<key>NSCameraUsageDescription</key>
+	<string>DirectChat needs to access to your camera to enable image messages</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>DirectChat needs to access to your micro to enable vocal messages</string>
 	<key>NSAppTransportSecurity</key>

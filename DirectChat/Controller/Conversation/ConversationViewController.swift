@@ -8,6 +8,7 @@
 import UIKit
 import CryptoSwift
 import AVKit
+import YPImagePicker
 
 class ConversationViewController: UIViewController, AVAudioRecorderDelegate {
     
@@ -25,6 +26,8 @@ class ConversationViewController: UIViewController, AVAudioRecorderDelegate {
     
     private(set) var messageArray: [Message] = []
     @IBOutlet weak var recordButton: UIButton!
+    @IBOutlet weak var photoButton: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,23 +66,42 @@ class ConversationViewController: UIViewController, AVAudioRecorderDelegate {
         
         socketRoomConnection?.listen { messageList in
             self.messageArray = []
-            let messageListSplitted = messageList.components(separatedBy: "$$")
+            var messageListSplitted:[[UInt8]] = []
+            var messageListIndex:Int = 0
+            var index = 0
             
-            //print("messageListSplitted", messageListSplitted)
-            if  messageListSplitted[0] == "" {
+            let messageListArray = Array(messageList)
+            
+            while (index < messageListArray.count) {
+                if messageListArray[index] == 35 && messageListArray[index+1] == 124 && messageListArray[index+2] == 35 {
+                    messageListIndex+=1
+                    index+=3
+                } else {
+                    if !messageListSplitted.indices.contains(messageListIndex) {
+                        messageListSplitted.append([])
+                    }
+                    
+                    messageListSplitted[messageListIndex].append(messageListArray[index])
+                    index+=1
+                }
+            }
+            
+            print("messageListSplitted", messageListSplitted)
+            if  (messageList[0] == 0) {
                 print("no messages")
             } else {
                 messageListSplitted.forEach { (message) in
                     
-                    let messageObject = MessageObject.fromString(message: message)
-                    let sender = messageObject.sender
-                    let sentByMe = sender == self.pseudo ? true : false
-                    
-                    let messageConverted = Message(userName: messageObject.sender, userImageUrl: "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2552&q=80", sentByMe: sentByMe, text: messageObject.content)
-                    self.messageArray.append(messageConverted)
+                    if let messageObject = MessageObject.fromData(message: message) {
+                        let sender = messageObject.sender
+                        let sentByMe = sender == self.pseudo ? true : false
+                        
+                        let messageConverted = Message(userName: messageObject.sender, userImageUrl: "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2552&q=80", sentByMe: sentByMe, text: messageObject.content)
+                        self.messageArray.append(messageConverted)
+                    }
                 }
-                self.chatCollView.reloadData()
                 
+                self.chatCollView.reloadData()
                 self.scrollToLastMessage()
             }
             
@@ -90,7 +112,6 @@ class ConversationViewController: UIViewController, AVAudioRecorderDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.fetchChatData()
     }
     
     @IBAction func microClicked(_ sender: Any) {
@@ -100,6 +121,27 @@ class ConversationViewController: UIViewController, AVAudioRecorderDelegate {
             finishRecording(success: true)
         }
     }
+    
+    @IBAction func photoClicked(_ sender: Any) {
+        var config = YPImagePickerConfiguration()
+        config.wordings.libraryTitle = "Gallerie"
+        config.wordings.cameraTitle = "Camera"
+        config.wordings.next = "Envoyer"
+        let picker = YPImagePicker(configuration: config)
+        
+        picker.didFinishPicking { [unowned picker] items, _ in
+            if let photo = items.singlePhoto {
+                print(photo.fromCamera) // Image source (camera or library)
+                print(photo.image) // Final image selected by the user
+                print(photo.originalImage) // original image selected by the user, unfiltered
+                print(photo.modifiedImage) // Transformed image, can be nil
+                print(photo.exifMeta) // Print exif meta data of original image.
+            }
+            picker.dismiss(animated: true, completion: nil)
+        }
+        present(picker, animated: true, completion: nil)
+    }
+    
     
     func startRecording() {
         let audioFilename = getDocumentsDirectory().appendingPathComponent("recording.m4a")
@@ -153,31 +195,7 @@ class ConversationViewController: UIViewController, AVAudioRecorderDelegate {
             // recording failed :(
         }
     }
-    
-    
-    private func fetchChatData() {
-        
-        let spinner = Spinner.init()
-        spinner.show()
-        
-        if let url = Bundle.main.url(forResource: "message", withExtension: "json") {
-            
-            DispatchQueue.main.async {
-                spinner.hide()
-            }
-            do {
-                
-                let data = try Data.init(contentsOf: url)
-                let decoder = JSONDecoder.init()
-                self.messageArray = try decoder.decode([Message].self, from: data)
-                self.chatCollView.reloadData()
-                
-            } catch let err {
-                print(err.localizedDescription)
-            }
-            
-        }
-    }
+
     
     private func manageInputEventsForTheSubViews() {
         
@@ -232,7 +250,10 @@ class ConversationViewController: UIViewController, AVAudioRecorderDelegate {
         guard let chatText = chatTF.text, chatText.count >= 1 else { return }
         chatTF.text = ""
         
-        socketRoomConnection?.socket.write(string: MessageObject(contentType: .string, sender: self.pseudo ?? "anonymous", recipient: "test", hour: "10h", content: chatText).toString())
+//        socketRoomConnection?.socket.write(string: MessageObject(contentType: .string, sender: self.pseudo ?? "anonymous", receiver: "test", hour: "10h", content: chatText).toString())
+        
+        socketRoomConnection?.socket.write(data: MessageObject(contentType: .string, sender: self.pseudo ?? "anonymous", receiver: "test", hour: "10h", content: chatText).toData())
+        
         
 //        let password: [UInt8] = Array("s33krit".utf8)
 //        let salt: [UInt8] = Array("nacllcan".utf8)
