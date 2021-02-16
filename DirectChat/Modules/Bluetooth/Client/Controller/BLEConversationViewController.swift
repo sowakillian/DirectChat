@@ -23,6 +23,8 @@ class BLEConversationViewController: UIViewController, AVAudioRecorderDelegate {
     var audioRecorder: AVAudioRecorder!
     var vocalTimer: Timer!
     
+    var messages: [Message] = []
+    
     
     private(set) var messageArray: [Message] = []
     @IBOutlet weak var recordButton: UIButton!
@@ -61,6 +63,8 @@ class BLEConversationViewController: UIViewController, AVAudioRecorderDelegate {
             // failed to record!
         }
         
+        
+        Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(listenMessages), userInfo: nil, repeats: true)
         
 //        print("socketRoomConnection", socketRoomConnection)
 //        socketRoomConnection?.connect()
@@ -110,6 +114,26 @@ class BLEConversationViewController: UIViewController, AVAudioRecorderDelegate {
 //
 //
 //        }
+    }
+    
+    @objc func listenMessages () {
+        BLEManager.instance.readData { (dataReceived) in
+            print("dataReceived \(dataReceived)")
+            if let data = dataReceived {
+                if data.count > 0 {
+                    self.reloadMessages(dataReceived: data)
+                }
+            }
+        }
+    }
+    
+    func reloadMessages (dataReceived: Data) {
+        if let messageObject = MessageObject.fromData(message: Array(dataReceived)) {
+            let messageConverted = Message(userName: messageObject.sender, userImageUrl: "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2552&q=80", sentByMe: false, text: messageObject.content)
+            self.messageArray.append(messageConverted)
+            self.chatCollView.reloadData()
+            self.scrollToLastMessage()
+        }
     }
     
     @IBAction func microClicked(_ sender: Any) {
