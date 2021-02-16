@@ -20,10 +20,11 @@ class CustomPeriph:NSObject {
         cbServices.removeAll()
     }
     
-    func startAdvertising() {
+    func startAdvertising(completionBlock: @escaping (_ success: Bool) -> Void) {
         stopAdvertising()
         print("Advertising launched")
         peripheral = CBPeripheralManager(delegate: self, queue: nil)
+        completionBlock(true)
     }
     
     func buildPeripheralWithGatt(_ gatt:GATTModel) {

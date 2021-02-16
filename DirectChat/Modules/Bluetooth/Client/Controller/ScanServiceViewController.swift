@@ -18,6 +18,12 @@ class ScanServiceViewController:UIViewController {
         serviceTextField.text = "uu"
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let dest = segue.destination as? BLEConversationViewController {
+            dest.chatType = "client"
+        }
+    }
+    
     @IBAction func scanServiceClicked(_ sender: Any) {
         if let serviceTF = serviceTextField.text {
             BLEManager.instance.scan { periph, name  in

@@ -22,6 +22,7 @@ class BLEConversationViewController: UIViewController, AVAudioRecorderDelegate {
     var recordingSession: AVAudioSession!
     var audioRecorder: AVAudioRecorder!
     var vocalTimer: Timer!
+    var chatType: String?
     
     
     private(set) var messageArray: [Message] = []

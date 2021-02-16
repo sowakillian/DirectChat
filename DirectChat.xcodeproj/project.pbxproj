@@ -330,8 +330,9 @@
 		7B8EE3EA25DBF3E500BD5E41 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				7BCAF98625D1484B00AE4080 /* Home */,
-				7BCAF98125D147FC00AE4080 /* SignIn */,
+				7BCD724525CC80DF008E9E99 /* HomeViewController.swift */,
+				7BCAF96B25D146CD00AE4080 /* SignInViewController.swift */,
+				7BCAF96325D146C100AE4080 /* SignUpViewController.swift */,
 				7BCAF98325D1480F00AE4080 /* SignUp */,
 			);
 			path = Controller;
@@ -453,28 +454,11 @@
 			path = Input;
 			sourceTree = "<group>";
 		};
-		7BCAF98125D147FC00AE4080 /* SignIn */ = {
-			isa = PBXGroup;
-			children = (
-				7BCAF96B25D146CD00AE4080 /* SignInViewController.swift */,
-			);
-			path = SignIn;
-			sourceTree = "<group>";
-		};
 		7BCAF98325D1480F00AE4080 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
-				7BCAF96325D146C100AE4080 /* SignUpViewController.swift */,
 			);
 			path = SignUp;
-			sourceTree = "<group>";
-		};
-		7BCAF98625D1484B00AE4080 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				7BCD724525CC80DF008E9E99 /* HomeViewController.swift */,
-			);
-			path = Home;
 			sourceTree = "<group>";
 		};
 		7BCAF9BF25D16E6600AE4080 /* Authentification */ = {

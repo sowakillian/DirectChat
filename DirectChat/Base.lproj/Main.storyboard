@@ -992,7 +992,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mAA-KP-XKR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6257" y="-1758"/>
+            <point key="canvasLocation" x="6271" y="-2046"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="QdX-0u-FUf">
@@ -1223,6 +1223,7 @@
                     <navigationItem key="navigationItem" id="bcT-B1-6j0"/>
                     <connections>
                         <outlet property="serverNameTextField" destination="MMC-gZ-SeR" id="XM3-NJ-4nb"/>
+                        <segue destination="7qF-V8-OdE" kind="show" identifier="toConversation" id="SVx-3j-S78"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qJ6-0g-hFN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1231,6 +1232,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="SVx-3j-S78"/>
         <segue reference="k0m-zc-Y8N"/>
     </inferredMetricsTieBreakers>
     <resources>

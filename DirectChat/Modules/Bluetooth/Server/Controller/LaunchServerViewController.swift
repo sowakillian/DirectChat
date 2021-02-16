@@ -12,10 +12,17 @@ class LaunchServerViewController:UIViewController {
     @IBOutlet weak var serverNameTextField: UITextField!
     var periph = CustomPeriph()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.hideKeyboardWhenTappedAround()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let dest = segue.destination as? BLEConversationViewController {
+            dest.chatType = "server"
+        }
     }
     
     @IBAction func launchServerClicked(_ sender: Any) {
@@ -23,13 +30,10 @@ class LaunchServerViewController:UIViewController {
             // Définition du nom advertisé
             periph.advertizedName = serverNameTF
             // Démarrage de l'advertising (le device émet son nom)
-            periph.startAdvertising()
-            
-            if let dataAvailable = "Superbe!".data(using: .utf8) {
-                // on rend cette chaine disponible dans la charactéristique...
-                // Il suffit au client de venir lire régulièrement dans cette char...
-                periph.availableDatas = dataAvailable
+            periph.startAdvertising { (success) in
+                self.performSegue(withIdentifier: "toConversation", sender: nil)
             }
+
             
             periph.centralDidReadDataCallBack = { data in
                 print("didRead")
@@ -43,6 +47,8 @@ class LaunchServerViewController:UIViewController {
                 print(data)
                 let str = String(decoding: data, as: UTF8.self)
                 print(str)
+                
+                self.periph.availableDatas = data
             }
         }
     }
