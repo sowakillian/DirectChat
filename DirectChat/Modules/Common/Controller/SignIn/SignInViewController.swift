@@ -35,7 +35,7 @@ class SignInViewController:UIViewController {
                     
                 } else {
                     self.activityIndicator.stopAnimating()
-                    self.performSegue(withIdentifier: "toRoomList", sender: nil)
+                    self.performSegue(withIdentifier: "toChatMode", sender: nil)
                 }
             }
         } else {

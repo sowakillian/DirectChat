@@ -22,6 +22,7 @@ class CustomPeriph:NSObject {
     
     func startAdvertising() {
         stopAdvertising()
+        print("Advertising launched")
         peripheral = CBPeripheralManager(delegate: self, queue: nil)
     }
     

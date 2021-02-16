@@ -165,6 +165,7 @@ extension BLEManager: CBCentralManagerDelegate {
         print("char = \(characteristic.value)")
         
         if let value = characteristic.value {
+            print(String(decoding: value, as: UTF8.self))
             readDataCallback?(String(decoding: value, as: UTF8.self))
         }
         

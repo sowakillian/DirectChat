@@ -14,6 +14,8 @@ class LaunchServerViewController:UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.hideKeyboardWhenTappedAround()
     }
     
     @IBAction func launchServerClicked(_ sender: Any) {
