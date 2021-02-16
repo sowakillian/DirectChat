@@ -26,7 +26,7 @@ class BLEManager: NSObject {
     var didFinishDiscoveryCallback: ((CBPeripheral) -> ())?
     var globalDisconnectCallback: ((CBPeripheral) -> ())?
     var sendDataCallback: ((String?) -> ())?
-    var readDataCallback: ((String?) -> ())?
+    var readDataCallback: ((Data?) -> ())?
     
     override init() {
         super.init()
@@ -95,7 +95,7 @@ class BLEManager: NSObject {
         }
     }
     
-    func readData(callback: @escaping (String?) -> ()) {
+    func readData(callback: @escaping (Data?) -> ()) {
         readDataCallback = callback
         for periph in readyPeripherals {
             if let char = BLEManager.instance.getCharForUUID(readCBUUID, forperipheral: periph) {
@@ -166,7 +166,7 @@ extension BLEManager: CBCentralManagerDelegate {
         
         if let value = characteristic.value {
             print(String(decoding: value, as: UTF8.self))
-            readDataCallback?(String(decoding: value, as: UTF8.self))
+            readDataCallback?(value)
         }
         
     }

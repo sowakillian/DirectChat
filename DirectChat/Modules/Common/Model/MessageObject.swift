@@ -65,6 +65,7 @@ class MessageObject {
     }
     
     static func fromData(message: [UInt8]) -> MessageObject? {
+        print("message \(message)")
         var messageSplitted:[[UInt8]] = []
         var messageIndex:Int = 0
         var index = 0
