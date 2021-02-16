@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
       
         let main =  UIStoryboard(name: "Main", bundle: nil)
                
-        let mainVC = main.instantiateViewController(withIdentifier: "RoomListViewController")
+        let mainVC = main.instantiateViewController(withIdentifier: "MainNavigationController")
         let signVC = main.instantiateViewController(withIdentifier: "HomeViewController")
                         
         if Auth.auth().currentUser?.uid != nil {

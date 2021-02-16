@@ -11,7 +11,7 @@
 		76D163562E421020A8858701 /* Pods_DirectChatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B7557DE64C52497DA566E02 /* Pods_DirectChatTests.framework */; };
 		7B36CCA325CAB1D600019DF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B36CCA225CAB1D600019DF3 /* AppDelegate.swift */; };
 		7B36CCA525CAB1D600019DF3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B36CCA425CAB1D600019DF3 /* SceneDelegate.swift */; };
-		7B36CCA725CAB1D600019DF3 /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B36CCA625CAB1D600019DF3 /* ConversationViewController.swift */; };
+		7B36CCA725CAB1D600019DF3 /* WSConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B36CCA625CAB1D600019DF3 /* WSConversationViewController.swift */; };
 		7B36CCAA25CAB1D600019DF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B36CCA825CAB1D600019DF3 /* Main.storyboard */; };
 		7B36CCAC25CAB1D800019DF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B36CCAB25CAB1D800019DF3 /* Assets.xcassets */; };
 		7B36CCAF25CAB1D800019DF3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B36CCAD25CAB1D800019DF3 /* LaunchScreen.storyboard */; };
@@ -24,7 +24,17 @@
 		7B36CD0225CAB4EB00019DF3 /* message.json in Resources */ = {isa = PBXBuildFile; fileRef = 7B36CD0125CAB4EB00019DF3 /* message.json */; };
 		7B36CD1A25CAB5B300019DF3 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B36CD1925CAB5B300019DF3 /* Spinner.swift */; };
 		7B77F04A25CC29950073BD9A /* MessageObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B77F04925CC29950073BD9A /* MessageObject.swift */; };
-		7B77F05025CC2A6D0073BD9A /* MessageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B77F04F25CC2A6D0073BD9A /* MessageType.swift */; };
+		7B8EE3EE25DBF47C00BD5E41 /* LaunchServerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8EE3ED25DBF47C00BD5E41 /* LaunchServerViewController.swift */; };
+		7B8EE3F925DBF4C600BD5E41 /* ScanServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8EE3F825DBF4C600BD5E41 /* ScanServiceViewController.swift */; };
+		7B8EE3FE25DBF51700BD5E41 /* BLEConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8EE3FD25DBF51700BD5E41 /* BLEConversationViewController.swift */; };
+		7B8EE41025DBF8C600BD5E41 /* Peripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8EE40F25DBF8C600BD5E41 /* Peripheral.swift */; };
+		7B8EE41C25DBF96800BD5E41 /* GATTModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8EE41B25DBF96800BD5E41 /* GATTModel.swift */; };
+		7B8EE42225DBF99300BD5E41 /* BLEService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8EE42125DBF99300BD5E41 /* BLEService.swift */; };
+		7B8EE42D25DBFA1100BD5E41 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8EE42C25DBFA1100BD5E41 /* SwiftyJSON.swift */; };
+		7B8EE43325DBFA7200BD5E41 /* GATTJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8EE43225DBFA7200BD5E41 /* GATTJson.swift */; };
+		7B8EE43C25DBFABB00BD5E41 /* GATTModelExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8EE43B25DBFABB00BD5E41 /* GATTModelExtensions.swift */; };
+		7B8EE44125DBFB3400BD5E41 /* BLECharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8EE44025DBFB3400BD5E41 /* BLECharacteristic.swift */; };
+		7B8EE44725DBFD3E00BD5E41 /* BLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8EE44625DBFD3E00BD5E41 /* BLEManager.swift */; };
 		7BCAF96425D146C100AE4080 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCAF96325D146C100AE4080 /* SignUpViewController.swift */; };
 		7BCAF96C25D146CD00AE4080 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCAF96B25D146CD00AE4080 /* SignInViewController.swift */; };
 		7BCAF97425D1479500AE4080 /* BasicButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCAF97325D1479500AE4080 /* BasicButton.swift */; };
@@ -74,7 +84,7 @@
 		7B36CC9F25CAB1D600019DF3 /* DirectChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DirectChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B36CCA225CAB1D600019DF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B36CCA425CAB1D600019DF3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7B36CCA625CAB1D600019DF3 /* ConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
+		7B36CCA625CAB1D600019DF3 /* WSConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WSConversationViewController.swift; sourceTree = "<group>"; };
 		7B36CCA925CAB1D600019DF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7B36CCAB25CAB1D800019DF3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7B36CCAE25CAB1D800019DF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -92,7 +102,17 @@
 		7B36CD0125CAB4EB00019DF3 /* message.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = message.json; sourceTree = "<group>"; };
 		7B36CD1925CAB5B300019DF3 /* Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
 		7B77F04925CC29950073BD9A /* MessageObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageObject.swift; sourceTree = "<group>"; };
-		7B77F04F25CC2A6D0073BD9A /* MessageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageType.swift; sourceTree = "<group>"; };
+		7B8EE3ED25DBF47C00BD5E41 /* LaunchServerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchServerViewController.swift; sourceTree = "<group>"; };
+		7B8EE3F825DBF4C600BD5E41 /* ScanServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanServiceViewController.swift; sourceTree = "<group>"; };
+		7B8EE3FD25DBF51700BD5E41 /* BLEConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEConversationViewController.swift; sourceTree = "<group>"; };
+		7B8EE40F25DBF8C600BD5E41 /* Peripheral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Peripheral.swift; sourceTree = "<group>"; };
+		7B8EE41B25DBF96800BD5E41 /* GATTModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GATTModel.swift; sourceTree = "<group>"; };
+		7B8EE42125DBF99300BD5E41 /* BLEService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEService.swift; sourceTree = "<group>"; };
+		7B8EE42C25DBFA1100BD5E41 /* SwiftyJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		7B8EE43225DBFA7200BD5E41 /* GATTJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GATTJson.swift; sourceTree = "<group>"; };
+		7B8EE43B25DBFABB00BD5E41 /* GATTModelExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GATTModelExtensions.swift; sourceTree = "<group>"; };
+		7B8EE44025DBFB3400BD5E41 /* BLECharacteristic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLECharacteristic.swift; sourceTree = "<group>"; };
+		7B8EE44625DBFD3E00BD5E41 /* BLEManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEManager.swift; sourceTree = "<group>"; };
 		7BCAF96325D146C100AE4080 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		7BCAF96B25D146CD00AE4080 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		7BCAF97325D1479500AE4080 /* BasicButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicButton.swift; sourceTree = "<group>"; };
@@ -188,14 +208,11 @@
 			isa = PBXGroup;
 			children = (
 				7BCAF98F25D1500F00AE4080 /* GoogleService-Info.plist */,
-				7BCAF9C025D16E6E00AE4080 /* Logic */,
 				7BCD724125CC8090008E9E99 /* Resources */,
 				7B77F04E25CC2A610073BD9A /* Enum */,
 				7B36CD0025CAB4CC00019DF3 /* Utils */,
 				7B36CCD625CAB20000019DF3 /* Extensions */,
-				7B36CCD525CAB1EF00019DF3 /* Model */,
-				7B36CCEF25CAB31C00019DF3 /* View */,
-				7B77EFAB25CBE6530073BD9A /* Controller */,
+				7B8EE3E625DBF3AA00BD5E41 /* Modules */,
 				7B36CCA225CAB1D600019DF3 /* AppDelegate.swift */,
 				7B36CCA425CAB1D600019DF3 /* SceneDelegate.swift */,
 				7B36CCA825CAB1D600019DF3 /* Main.storyboard */,
@@ -264,25 +281,150 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		7B77EFAB25CBE6530073BD9A /* Controller */ = {
+		7B77F04E25CC2A610073BD9A /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				7BCD727525CC9CC0008E9E99 /* ConnectionType.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
+		7B8EE3E625DBF3AA00BD5E41 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				7B8EE3E925DBF3D700BD5E41 /* Common */,
+				7B8EE3E825DBF3C200BD5E41 /* Websocket */,
+				7B8EE3E725DBF3BC00BD5E41 /* Bluetooth */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		7B8EE3E725DBF3BC00BD5E41 /* Bluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				7B8EE3F625DBF48C00BD5E41 /* Client */,
+				7B8EE3F525DBF48600BD5E41 /* Server */,
+			);
+			path = Bluetooth;
+			sourceTree = "<group>";
+		};
+		7B8EE3E825DBF3C200BD5E41 /* Websocket */ = {
+			isa = PBXGroup;
+			children = (
+				7B8EE3EB25DBF3F300BD5E41 /* Controller */,
+			);
+			path = Websocket;
+			sourceTree = "<group>";
+		};
+		7B8EE3E925DBF3D700BD5E41 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				7B36CCEF25CAB31C00019DF3 /* View */,
+				7B36CCD525CAB1EF00019DF3 /* Model */,
+				7BCAF9C025D16E6E00AE4080 /* Logic */,
+				7B8EE3EA25DBF3E500BD5E41 /* Controller */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		7B8EE3EA25DBF3E500BD5E41 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				7BCAF98625D1484B00AE4080 /* Home */,
-				7BCAF98525D1482E00AE4080 /* Conversation */,
-				7BCAF98425D1482600AE4080 /* RoomList */,
 				7BCAF98125D147FC00AE4080 /* SignIn */,
 				7BCAF98325D1480F00AE4080 /* SignUp */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		7B77F04E25CC2A610073BD9A /* Enum */ = {
+		7B8EE3EB25DBF3F300BD5E41 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				7B77F04F25CC2A6D0073BD9A /* MessageType.swift */,
-				7BCD727525CC9CC0008E9E99 /* ConnectionType.swift */,
+				7B36CCA625CAB1D600019DF3 /* WSConversationViewController.swift */,
+				7BCD725625CC81C9008E9E99 /* RoomListViewController.swift */,
 			);
-			path = Enum;
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7B8EE3EC25DBF42300BD5E41 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7B8EE3ED25DBF47C00BD5E41 /* LaunchServerViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7B8EE3F525DBF48600BD5E41 /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				7B8EE43A25DBFAA200BD5E41 /* Extension */,
+				7B8EE43125DBFA5D00BD5E41 /* Data */,
+				7B8EE42025DBF97900BD5E41 /* Service */,
+				7B8EE41A25DBF95300BD5E41 /* Model */,
+				7B8EE3EC25DBF42300BD5E41 /* Controller */,
+			);
+			path = Server;
+			sourceTree = "<group>";
+		};
+		7B8EE3F625DBF48C00BD5E41 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				7B8EE44525DBFD2D00BD5E41 /* Manager */,
+				7B8EE3F725DBF4B600BD5E41 /* Controller */,
+			);
+			path = Client;
+			sourceTree = "<group>";
+		};
+		7B8EE3F725DBF4B600BD5E41 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7B8EE3F825DBF4C600BD5E41 /* ScanServiceViewController.swift */,
+				7B8EE3FD25DBF51700BD5E41 /* BLEConversationViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7B8EE41A25DBF95300BD5E41 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7B8EE41B25DBF96800BD5E41 /* GATTModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7B8EE42025DBF97900BD5E41 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				7B8EE40F25DBF8C600BD5E41 /* Peripheral.swift */,
+				7B8EE42125DBF99300BD5E41 /* BLEService.swift */,
+				7B8EE42C25DBFA1100BD5E41 /* SwiftyJSON.swift */,
+				7B8EE44025DBFB3400BD5E41 /* BLECharacteristic.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		7B8EE43125DBFA5D00BD5E41 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				7B8EE43225DBFA7200BD5E41 /* GATTJson.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		7B8EE43A25DBFAA200BD5E41 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				7B8EE43B25DBFABB00BD5E41 /* GATTModelExtensions.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		7B8EE44525DBFD2D00BD5E41 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				7B8EE44625DBFD3E00BD5E41 /* BLEManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		7BCAF97025D1476400AE4080 /* Components */ = {
@@ -325,22 +467,6 @@
 				7BCAF96325D146C100AE4080 /* SignUpViewController.swift */,
 			);
 			path = SignUp;
-			sourceTree = "<group>";
-		};
-		7BCAF98425D1482600AE4080 /* RoomList */ = {
-			isa = PBXGroup;
-			children = (
-				7BCD725625CC81C9008E9E99 /* RoomListViewController.swift */,
-			);
-			path = RoomList;
-			sourceTree = "<group>";
-		};
-		7BCAF98525D1482E00AE4080 /* Conversation */ = {
-			isa = PBXGroup;
-			children = (
-				7B36CCA625CAB1D600019DF3 /* ConversationViewController.swift */,
-			);
-			path = Conversation;
 			sourceTree = "<group>";
 		};
 		7BCAF98625D1484B00AE4080 /* Home */ = {
@@ -669,28 +795,38 @@
 				7BCAF9C325D16ED300AE4080 /* AuthManager.swift in Sources */,
 				7B77F04A25CC29950073BD9A /* MessageObject.swift in Sources */,
 				7BCAF9C925D16F3700AE4080 /* User.swift in Sources */,
+				7B8EE43325DBFA7200BD5E41 /* GATTJson.swift in Sources */,
 				7BCD729025CD1A88008E9E99 /* RoomConnectionSocket.swift in Sources */,
-				7B36CCA725CAB1D600019DF3 /* ConversationViewController.swift in Sources */,
+				7B36CCA725CAB1D600019DF3 /* WSConversationViewController.swift in Sources */,
 				7BCD727C25CD17D3008E9E99 /* SocketCommunication.swift in Sources */,
 				7B36CCA325CAB1D600019DF3 /* AppDelegate.swift in Sources */,
 				7BCD725725CC81C9008E9E99 /* RoomListViewController.swift in Sources */,
+				7B8EE42225DBF99300BD5E41 /* BLEService.swift in Sources */,
 				7BCD726825CC95BA008E9E99 /* RoomTableViewCell.swift in Sources */,
 				7BCD728125CD18CA008E9E99 /* SocketCommunicationTool.swift in Sources */,
-				7B77F05025CC2A6D0073BD9A /* MessageType.swift in Sources */,
 				7B36CCD825CAB20B00019DF3 /* UIViewExtension.swift in Sources */,
+				7B8EE42D25DBFA1100BD5E41 /* SwiftyJSON.swift in Sources */,
+				7B8EE44725DBFD3E00BD5E41 /* BLEManager.swift in Sources */,
+				7B8EE3F925DBF4C600BD5E41 /* ScanServiceViewController.swift in Sources */,
 				7BCAF9CE25D170E000AE4080 /* AuthErrorCodeExtension.swift in Sources */,
+				7B8EE44125DBFB3400BD5E41 /* BLECharacteristic.swift in Sources */,
 				7BCAF97C25D1479F00AE4080 /* BasicInput.swift in Sources */,
 				7BCD72F825CD7B38008E9E99 /* UIViewControllerExtension.swift in Sources */,
 				7B36CCE025CAB25700019DF3 /* Message.swift in Sources */,
+				7B8EE3FE25DBF51700BD5E41 /* BLEConversationViewController.swift in Sources */,
 				7BCD724625CC80DF008E9E99 /* HomeViewController.swift in Sources */,
+				7B8EE3EE25DBF47C00BD5E41 /* LaunchServerViewController.swift in Sources */,
 				7BCAF98B25D1496A00AE4080 /* UIColorExtension.swift in Sources */,
 				7BCAF97425D1479500AE4080 /* BasicButton.swift in Sources */,
+				7B8EE41025DBF8C600BD5E41 /* Peripheral.swift in Sources */,
 				7BCAF96425D146C100AE4080 /* SignUpViewController.swift in Sources */,
+				7B8EE43C25DBFABB00BD5E41 /* GATTModelExtensions.swift in Sources */,
 				7BCEF27C25D2A55300A9826B /* MessageInput.swift in Sources */,
 				7BCEF28125D2D38300A9826B /* DocumentsUtils.swift in Sources */,
 				7B36CCA525CAB1D600019DF3 /* SceneDelegate.swift in Sources */,
 				7BCD728B25CD1A79008E9E99 /* RoomCreationSocket.swift in Sources */,
 				7B36CCF425CAB34500019DF3 /* BaseCollectionViewCell.swift in Sources */,
+				7B8EE41C25DBF96800BD5E41 /* GATTModel.swift in Sources */,
 				7B36CCFC25CAB38300019DF3 /* MessageCell.swift in Sources */,
 				7B36CD1A25CAB5B300019DF3 /* Spinner.swift in Sources */,
 			);
@@ -869,15 +1005,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 37J2MVMMBY;
+				DEVELOPMENT_TEAM = XN7U5823Q2;
 				INFOPLIST_FILE = DirectChat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.bddi.DirectChat;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dmiii;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -889,15 +1027,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 37J2MVMMBY;
+				DEVELOPMENT_TEAM = XN7U5823Q2;
 				INFOPLIST_FILE = DirectChat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.bddi.DirectChat;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dmiii;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
